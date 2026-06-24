@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#444749",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#fbfdff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#57dffe",
+                        "on-background": "#111c2d",
+                        "outline-variant": "#c7c4d7",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "on-primary-container": "#fffbff",
+                        "on-primary-fixed": "#07006c",
+                        "inverse-primary": "#c0c1ff",
+                        "on-secondary-container": "#006172",
+                        "surface-variant": "#d8e3fb",
+                        "secondary-fixed": "#acedff",
+                        "surface-tint": "#494bd6",
+                        "surface-container": "#e7eeff",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "inverse-on-surface": "#ecf1ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "surface": "#f9f9ff",
+                        "outline": "#767586",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f0f3ff",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#6063ee",
+                        "inverse-surface": "#263143",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9ff",
+                        "primary-fixed": "#e1e0ff",
+                        "on-secondary-fixed": "#001f26",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#cfdaf2",
+                        "primary": "#4648d4",
+                        "on-surface-variant": "#464554",
+                        "tertiary": "#595c5e",
+                        "surface-container-high": "#dee8ff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-surface": "#111c2d",
+                        "tertiary-container": "#727577",
+                        "secondary": "#00687a",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width": "1440px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-sm": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "label-sm": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Compact monthly cards: mobile 1 column, PC 3 columns */
+        .compact-timeline .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .compact-timeline .timeline-card {
+            position: relative;
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid #c7c4d7;
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 2px 6px rgba(17, 28, 45, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            will-change: transform;
+        }
+        .compact-timeline .timeline-card:hover {
+            box-shadow: 0 10px 22px -6px rgba(70, 72, 212, 0.16);
+            border-color: rgba(70, 72, 212, 0.45);
+        }
+        .compact-timeline .month-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #4648d4, #4cd7f6);
+            color: #ffffff;
+            border: 4px solid #ffffff;
+            box-shadow: 0 6px 14px rgba(70, 72, 212, 0.18);
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        .compact-timeline .event-chip {
+            display: inline-block;
+            padding: 5px 11px;
+            border-radius: 999px;
+            background: #57dffe;
+            color: #006172;
+            font-size: 12px;
+            font-weight: 800;
+            margin-left: 6px;
+            margin-bottom: 10px;
+        }
+        .compact-timeline .timeline-card h3 {
+            font-size: 20px;
+            line-height: 1.35;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .compact-timeline .timeline-card p {
+            font-size: 14px;
+            line-height: 1.55;
+            margin-bottom: 8px;
+        }
+        .compact-timeline .timeline-card .media {
+            margin-top: 12px;
+            display: grid;
+            gap: 8px;
+        }
+        .compact-timeline .timeline-card .media.two {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .compact-timeline .timeline-card .media-frame {
+            height: 132px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #e7eeff;
+        }
+        .compact-timeline .timeline-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .compact-timeline {
+                padding-top: 56px !important;
+                padding-bottom: 56px !important;
+            }
+            .compact-timeline .timeline-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 22px;
+                align-items: stretch;
+            }
+            .compact-timeline .timeline-card {
+                padding: 18px;
+                min-height: 100%;
+            }
+            .compact-timeline .timeline-card .media-frame {
+                height: 120px;
+            }
+            .compact-timeline .timeline-card h3 {
+                font-size: 19px;
+            }
+        }
+        @media (max-width: 767px) {
+            .compact-timeline {
+                padding-top: 40px !important;
+                padding-bottom: 40px !important;
+            }
+            .compact-timeline .timeline-heading {
+                margin-bottom: 24px !important;
+            }
+            .compact-timeline .timeline-grid {
+                gap: 14px;
+            }
+            .compact-timeline .timeline-card {
+                padding: 16px;
+                border-radius: 14px;
+            }
+            .compact-timeline .timeline-card .media-frame {
+                height: 136px;
+            }
+            .compact-timeline .timeline-card h3 {
+                font-size: 18px;
+            }
+        }
+
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed-variant">
+
+<main class="pt-24 pb-20">
+<!-- Hero Header -->
+<section class="bg-[#F9F9FF] py-20">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">게임제작과 교육과정 안내</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">기획부터 프로그래밍, 그래픽, QA까지 게임 크리에이터를 양성하는 체계적인 커리큘럼을 소개합니다.</p>
+</div>
+</section>
+<!-- Curriculum Grid Section -->
+<section class="bg-[#F0F3FF] py-20">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1: Game Planning -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="w-14 h-14 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="description">description</span>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-on-surface-variant font-label-sm">주당 7시간</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">게임기획</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">게임의 메커니즘, 시나리오, 밸런싱을 설계하고 프로젝트의 비전을 제시하는 핵심 역량을 배양합니다. 아이디어를 구체적인 문서로 구현하는 프로세스를 익힙니다.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container px-2 py-1 rounded text-primary font-label-sm">Game Design</span>
+<span class="bg-surface-container px-2 py-1 rounded text-primary font-label-sm">Scenario</span>
+<span class="bg-surface-container px-2 py-1 rounded text-primary font-label-sm">Level Design</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+</div>
+<!-- Card 2: Game Programming -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="code">code</span>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-on-surface-variant font-label-sm">주당 7시간</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">게임프로그래밍</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">C# 언어 기초를 기반으로 글로벌 메인 엔진인 유니티(Unity 6)와 차세대 경량 엔진 고도(Godot)를 모두 마스터합니다. AI 도구를 활용한 바이브 코딩(Vibe Coding)으로 초고속 프로토타입 구현 능력을 기릅니다.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container px-2 py-1 rounded text-secondary font-label-sm">Unity6</span>
+<span class="bg-surface-container px-2 py-1 rounded text-secondary font-label-sm">Godot</span>
+<span class="bg-surface-container px-2 py-1 rounded text-secondary font-label-sm">Vibe Coding</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+</div>
+<!-- Card 3: Computer Graphics -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="w-14 h-14 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="palette">palette</span>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-on-surface-variant font-label-sm">주당 6시간</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">컴퓨터그래픽</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">어도비 포토샵과 일러스트레이터를 활용하여 게임에 필요한 2D 그래픽 원화 소스, UI/UX 에셋, 스프라이트 시트를 직접 제작합니다.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container px-2 py-1 rounded text-primary font-label-sm">Photoshop</span>
+<span class="bg-surface-container px-2 py-1 rounded text-primary font-label-sm">Illustrator</span>
+<span class="bg-surface-container px-2 py-1 rounded text-primary font-label-sm">UI/UX</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary-container transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+</div>
+<!-- Card 4: Media Content General -->
+<div class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="w-14 h-14 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="movie">movie</span>
+</div>
+<span class="bg-surface-container-high px-3 py-1 rounded-full text-on-surface-variant font-label-sm">주당 6시간</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">미디어콘텐츠일반</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">영상 툴 캡컷(CapCut)을 활용해 학생들이 제작한 프로젝트의 게임 영상을 편집합니다. 노션(Notion)을 활용하여 자신의 성장 기록과 결과물을 체계적으로 포트폴리오화합니다.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container px-2 py-1 rounded text-tertiary font-label-sm">Game Video</span>
+<span class="bg-surface-container px-2 py-1 rounded text-tertiary font-label-sm">CapCut Editing</span>
+<span class="bg-surface-container px-2 py-1 rounded text-tertiary font-label-sm">Notion Portfolio</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-tertiary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Monthly Timeline Section -->
+<section class="compact-timeline bg-[#F9F9FF] py-10 md:py-14 overflow-hidden">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="timeline-heading text-center mb-7 md:mb-10">
+<h2 class="font-headline-md text-[28px] md:text-headline-md leading-9 md:leading-10 mb-3">게임제작과의 1년, 한 달씩 따라가 보기</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">입교식부터 수료식까지, 매달 무슨 일이 벌어질까?</p>
+</div>
+<div class="timeline-grid">
+
+<article class="timeline-card group">
+<div><span class="month-badge">03</span></div>
+<h3>시작: "낯선 교실, 같은 취향"</h3>
+<p class="text-on-surface-variant">게임만 하던 친구들이... 한마디로 금방 친해진다.</p>
+<p class="italic text-primary">"내 얘기 통하는 애들이 한 반에 다 있어요."</p>
+<div class="media"><div class="media-frame"><img alt="March Class" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/3-start.jpg"></div></div>
+</article>
+
+<article class="timeline-card group border-2 border-primary/20 shadow-md">
+<div><span class="month-badge">04</span></div>
+<h3>첫 도전: "처음 '내 게임'이 움직였다"</h3>
+<p class="text-on-surface-variant">게임 엔진을 처음 켜고... 내가 처음 개발하는 순간.</p>
+<p class="italic text-primary">"버튼 누르니까 내가 만든 캐릭터가 움직였어요. 소름."</p>
+<div class="media">
+    <div class="media-frame">
+        <img alt="April Development" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/student04.jpg">
+    </div>
+</div>
+</article>
+
+<article class="timeline-card group">
+<div><span class="month-badge">05</span></div>
+<h3>체육대회: "몸도 마음도 튼튼하게"</h3>
+<p class="text-on-surface-variant">전교생이 함께 모여 다양한 체육 활동을 즐기는 하루. 책상과 모니터를 잠시 떠나 친구들과 땀 흘리며 몸과 마음을 건강하게 다집니다.</p>
+<p class="italic text-primary">"게임만 하다 다 같이 뛰니까 진짜 재밌고 개운해요."</p>
+<div class="media two">
+    <div class="media-frame">
+        <img alt="May Sports Day" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/ex1.jpg">
+    </div>
+    <div class="media-frame">
+        <img alt="May Sports Day" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/ex2.jpg">
+    </div>
+    </div>
+</article>
+
+<article class="timeline-card group">
+<div><span class="month-badge">06</span></div>
+<h3>동아리: "혼자가 아니라, 팀으로"</h3>
+<p class="text-on-surface-variant">기획·그래픽·프로그래밍 역할을 나눠... 제일 재밌다.</p>
+<p class="italic text-primary">"내 아이디어가 진짜 게임이 되어가는 게 신기해요."</p>
+<div class="media">
+    <div class="media-frame">
+        <img alt="June Teamwork" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/5-team.jpg"></div></div>
+</article>
+
+<article class="timeline-card group">
+<div><span class="month-badge">07</span></div>
+<h3>두 번째 완성: "완성한 두 번째 게임"</h3>
+<p class="text-on-surface-variant">만든 게임과 화면을 모아 포트폴리오 폴더를 만들기 시작한다. 지필평가도 이 무렵.</p>
+<p class="italic text-primary">"친구한테 '이거 내가 만든 거야' 보여줄 때가 제일 뿌듯해요."</p>
+<div class="media"><div class="media-frame"><img alt="July Project" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/student07.jpg"></div></div>
+</article>
+
+<article class="timeline-card group">
+<div><span class="month-badge">08</span></div>
+<h3>동아리: "교내 경진대회와 여름방학"</h3>
+<p class="text-on-surface-variant">교내 경진대회와 외부 대회 출품을 위해 게임을 마무리하고, 여름방학에는 2학기에 만들 게임을 계획하며 출품작을 준비한다.</p>
+<p class="italic text-primary">"시키지 않아도 만들고 싶은 게 생겨요."</p>
+<div class="media two">
+    <div class="media-frame"><img alt="In-school Contest" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/7-1-game.png"></div>
+    <div class="media-frame"><img alt="Summer Project" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/student09.jpg"></div>
+</div>
+</article>
+
+<article class="timeline-card group">
+<div><span class="month-badge">09</span><span class="event-chip">위탁교육체험의 날</span></div>
+<h3>본격: "한 단계 더 큰 게임으로"</h3>
+<p class="text-on-surface-variant">2학기, 조작감과 완성도가 필요한 프로젝트에 도전한다. 난이도가 올라간 만큼 실력도 보인다.</p>
+<div class="media"><div class="media-frame"><img alt="September Advanced Project" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/student08.jpg"></div></div>
+</article>
+
+<article class="timeline-card group border-2 border-primary/20 shadow-md">
+<div><span class="month-badge">10</span><span class="event-chip">정시모집</span></div>
+<h3>절정: "대회도 후배도 맞이하다"</h3>
+<p class="text-on-surface-variant">게임 대회에 작품을 출품하고, 내년 신입생이 학교를 찾는다.</p>
+<p class="italic text-primary">"1년 전 나처럼 구경 온 후배들 보면 신기해요."</p>
+<div class="media"><div class="media-frame"><img alt="October Presentation" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/10-game.png"></div></div>
+</article>
+
+<article class="timeline-card group border-2 border-primary/20 shadow-md">
+<div><span class="month-badge">11</span><span class="event-chip">추가모집</span></div>
+<h3>서울 직업계고 본선: "만든 걸 사람들 앞에서"</h3>
+<p class="text-on-surface-variant">게임 발표·전시로 1년 작업을 보여주고, 수상의 기쁨</p>
+<div class="media"><div class="media-frame"><img alt="November Showcase" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/11-game.png"></div></div>
+</article>
+
+<article class="timeline-card group">
+<div><span class="month-badge">12</span></div>
+<h3>수료: "같은 취향으로 만난 1년"</h3>
+<p class="text-on-surface-variant">수료와 함께 작품과 친구, 그리고 진로가 남는다. 졸업장은 원래 다니던 소속 고등학교에서 받는다.</p>
+<div class="media"><div class="media-frame"><img alt="December Career" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/12-game.png"></div></div>
+</article>
+
+</div>
+</div>
+</section>
+<!-- Certification Section -->
+<section class="bg-[#F0F3FF] py-20">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">자격증 취득 지원</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">실무 역량을 공식적으로 증명할 수 있는 다양한 자격증 취득을 장려합니다.</p>
+</div>
+<div class="bg-primary-container text-on-primary-container px-6 py-4 rounded-xl shadow-md border-l-4 border-primary">
+<span class="font-headline-sm">🎯 1인 3자격증 이상 취득 목표</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="military_tech">military_tech</span>
+<h4 class="font-headline-sm text-headline-sm">국가기술자격</h4>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<span class="font-body-md">게임기획전문가</span>
+<span class="text-primary font-label-sm">한국콘텐츠진흥원</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<span class="font-body-md">게임그래픽전문가</span>
+<span class="text-primary font-label-sm">한국콘텐츠진흥원</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<span class="font-body-md">게임프로그래밍전문가</span>
+<span class="text-primary font-label-sm">한국콘텐츠진흥원</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<span class="font-body-md">멀티미디어콘텐츠제작전문가</span>
+<span class="text-primary font-label-sm">한국산업인력공단</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-secondary" data-icon="workspace_premium">workspace_premium</span>
+<h4 class="font-headline-sm text-headline-sm">실무자격</h4>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<span class="font-body-md">Unity Certified User</span>
+<span class="text-secondary font-label-sm">Global Unity</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<span class="font-body-md">GTQ (그래픽기술자격)</span>
+<span class="text-secondary font-label-sm">한국생산성본부</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<span class="font-body-md">ACA (Adobe Certified Associate)</span>
+<span class="text-secondary font-label-sm">Adobe</span>
+</li>
+<li class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<span class="font-body-md">ITQ 정보기술자격</span>
+<span class="text-secondary font-label-sm">KPC</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Career Roadmap Section -->
+<section class="bg-[#F9F9FF] py-20">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-12 text-center">진로 로드맵</h2>
+<div class="relative">
+<!-- Decorative Line -->
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative z-10">
+<div class="bg-surface-container-lowest p-6 rounded-xl border-2 border-primary shadow-sm hover:-translate-y-2 transition-transform">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary mb-4 mx-auto">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<h5 class="font-headline-sm text-center mb-2">대학 진학</h5>
+<p class="font-body-sm text-center text-on-surface-variant">게임공학과, 컴퓨터공학과, 디지털콘텐츠학과 등 전공 심화 학습</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-2 border-secondary shadow-sm hover:-translate-y-2 transition-transform">
+<div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-on-secondary mb-4 mx-auto">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+</div>
+<h5 class="font-headline-sm text-center mb-2">취업</h5>
+<p class="font-body-sm text-center text-on-surface-variant">게임 개발사, IT 기업, 콘텐츠 제작사 등 실무 현장 진출</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-2 border-tertiary shadow-sm hover:-translate-y-2 transition-transform">
+<div class="w-12 h-12 bg-tertiary rounded-full flex items-center justify-center text-on-tertiary mb-4 mx-auto">
+<span class="material-symbols-outlined" data-icon="model_training">model_training</span>
+</div>
+<h5 class="font-headline-sm text-center mb-2">일학습병행제</h5>
+<p class="font-body-sm text-center text-on-surface-variant">산업현장에서 실무를 배우며 이론 교육을 병행하는 교육 훈련</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-2 border-outline shadow-sm hover:-translate-y-2 transition-transform">
+<div class="w-12 h-12 bg-outline rounded-full flex items-center justify-center text-on-primary mb-4 mx-auto">
+<span class="material-symbols-outlined" data-icon="stairs">stairs</span>
+</div>
+<h5 class="font-headline-sm text-center mb-2">선취업 후진학</h5>
+<p class="font-body-sm text-center text-on-surface-variant">취업 후 3년 경력을 바탕으로 재직자 특별전형 대학 진학</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-[#F0F3FF] py-20">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="relative rounded-3xl overflow-hidden bg-primary-container p-12 text-center text-on-primary-container">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img alt="Game Development Background" class="w-full h-full object-cover" data-alt="A dark, high-tech game development studio environment with multiple monitors showing complex code, 3D character models, and game level designs. The scene is illuminated by the cool blue and purple glow of the screens, reflecting off sleek workstation surfaces. The atmosphere is professional and intensely creative, capturing the high-energy vibe of a modern digital production house." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZbYplKLsMhBuLaLbX01yxLdR15DUC8NECjFb7X53MEqGwsQUv3UYaz0BjEDJ2Uk-M4KLcWZhoWxPd8nR44qeQW0uLwiVWUESfqIDDgxkClPJZzk0JxepXfJnt2nQm0xrerpNLbv2M6og-0R7CQgv3YcPSC85zXpufY3PKzQsDHRK9eI86eSPeVv2EmzPUnVgKpExJ2GaW6HpebDs4lNmCQRJIWhMRn51d5xyiZEyVIB_7dJiilo1FrJF9xk5NdFtwwwsXszAFTLw"/>
+</div>
+<div class="relative z-10">
+<h2 class="font-headline-md text-headline-md mb-6">당신의 꿈을 현실로 만드는 첫걸음</h2>
+<p class="font-body-lg text-body-lg mb-10 opacity-90">아현산업정보학교 게임제작과에서 미래의 게임 산업을 이끌어갈 크리에이터가 되세요.</p>
+<!--
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-on-primary-container text-primary-container px-8 py-4 rounded-full font-label-md hover:shadow-lg transition-all">입학 상담 신청하기</button>
+<button class="border-2 border-on-primary-container text-on-primary-container px-8 py-4 rounded-full font-label-md hover:bg-on-primary-container/10 transition-all">브로슈어 다운로드</button>
+</div>
+-->
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#f9f9ff] py-10 keep-all">
+  <div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="text-sm text-[#111c2d]">
+      <p class="font-extrabold mb-3">아현산업정보학교 게임제작과</p>
+
+      <div class="space-y-1 text-[#111c2d]/80 leading-relaxed">
+        <p>📍 서울특별시 마포구 아현동 마포대로 249 아현산업정보학교 게임제작실습실</p>
+        <p>☎ 02-390-5864&nbsp;&nbsp; | &nbsp;&nbsp;✉ seomin@sen.go.kr</p>
+      </div>
+
+      <p class="mt-5 text-xs text-[#111c2d]/70">
+        © 2024 Ahyeon Game Lab. All rights reserved. High-Tech Education for Future Creators.
+      </p>
+    </div>
+  </div>
+</footer>
+</main>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
