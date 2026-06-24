@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #4648d4;
+      --secondary: #00687a;
+      --surface: #f9f9ff;
+      --surface-soft: #f0f3ff;
+      --text: #111c2d;
+      --text-soft: #464554;
+      --cyan: #4cd7f6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: var(--surface);
+      color: var(--text);
+      font-family: "Hanken Grotesk", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .keep-all {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .page-section {
+      width: 100%;
+    }
+
+    .section-inner {
+      width: min(100% - 40px, 1120px);
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .section-inner {
+        width: min(100% - 96px, 1120px);
+      }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: clamp(560px, 78vh, 760px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background-image:
+        linear-gradient(135deg, rgba(40, 42, 158, 0.88) 0%, rgba(0, 78, 94, 0.82) 100%),
+        url("https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/main_class.jpg");
+      background-size: cover;
+      background-position: center center;
+      border-left: 2px solid rgba(70, 72, 212, 0.85);
+      border-right: 2px solid rgba(70, 72, 212, 0.85);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 30%;
+      background: linear-gradient(180deg, rgba(18, 22, 70, 0) 0%, rgba(18, 22, 70, 0.62) 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(100% - 48px, 1120px);
+      margin: 0 auto;
+      padding: 68px 0 96px;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--cyan);
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      margin: 0 0 28px;
+      color: #ffffff;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      text-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-desc {
+      margin: 0 0 28px;
+      max-width: 560px;
+      color: rgba(233, 238, 248, 0.88);
+      font-size: clamp(16px, 2.1vw, 20px);
+      line-height: 1.72;
+      font-weight: 600;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 214px;
+      min-height: 54px;
+      padding: 0 30px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 800;
+      box-shadow: 0 14px 28px rgba(70, 72, 212, 0.28);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-2px);
+      background: #383ac5;
+      box-shadow: 0 18px 34px rgba(70, 72, 212, 0.34);
+    }
+
+    .scroll-cue {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      color: rgba(255, 255, 255, 0.65);
+      animation: floatArrow 1.6s ease-in-out infinite;
+      cursor: pointer;
+    }
+
+    .scroll-cue .material-symbols-outlined {
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    @keyframes floatArrow {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* Cards */
+    .bento-card {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0px 20px 25px -5px rgba(70, 72, 212, 0.08), 0px 10px 10px -5px rgba(70, 72, 212, 0.04);
+    }
+
+    .curriculum-card {
+      transition: all 0.25s ease;
+      min-width: 0;
+    }
+
+    .curriculum-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -10px rgba(70, 72, 212, 0.1);
+    }
+
+    .award-item {
+      transition: all 0.2s ease;
+    }
+
+    .award-item:hover {
+      border-color: var(--primary);
+      background-color: #f4f5ff;
+      transform: translateX(4px);
+    }
+
+    .award-item:hover .link-icon {
+      color: var(--primary);
+    }
+
+    .instagram-cta {
+      background: var(--primary);
+      color: white;
+    }
+
+    .instagram-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-width: min(100%, 340px);
+      min-height: 42px;
+      padding: 0 22px;
+      border-radius: 5px;
+      background: white;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 10px 26px rgba(17, 28, 45, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .instagram-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(17, 28, 45, 0.18);
+    }
+
+    @media (max-width: 767px) {
+      .hero {
+        min-height: 620px;
+        align-items: flex-start;
+        background-image:
+          linear-gradient(135deg, rgba(40, 42, 158, 0.88) 0%, rgba(0, 78, 94, 0.82) 100%),
+          url("https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/classroom.png");
+        background-position: center top;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .hero-content {
+        width: min(100% - 36px, 1120px);
+        padding: 86px 0 120px;
+      }
+
+      .hero-title {
+        margin-bottom: 22px;
+      }
+
+      .hero-desc {
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .hero-button {
+        width: 100%;
+        max-width: 280px;
+        min-height: 52px;
+        font-size: 15px;
+      }
+
+      .curriculum-card {
+        gap: 16px;
+        padding: 20px !important;
+      }
+
+      .curriculum-card .time-badge {
+        margin-top: 8px;
+      }
+
+      .award-item {
+        align-items: flex-start !important;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <!-- 표지 영역 -->
+    <section class="hero page-section keep-all">
+      <div class="hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow">CREATIVE TECHNOLOGY HUB</span>
+          <h1 class="hero-title">
+            아현산업정보학교<br />
+            게임제작과
+          </h1>
+          <p class="hero-desc">
+            국내 최고의 장비와 현업 전문가 중심의 커리큘럼으로<br class="hidden md:block" />
+            당신의 상상을 현실로 구현하는 게임 개발자 전문 양성소입니다.
+          </p>
+          <a class="hero-button" href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/curri" target="_blank" rel="noopener noreferrer">
+            교육과정 상세보기
+          </a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#hardware-section" aria-label="다음 섹션으로 이동">
+        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+      </a>
+    </section>
+
+    <!-- Pro-Studio Hardware -->
+    <section id="hardware-section" class="page-section bg-[#f9f9ff] py-16 md:py-24 keep-all">
+      <div class="section-inner">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold text-[#111c2d] tracking-tight mb-3">Pro-Studio Hardware</h2>
+          <p class="text-base md:text-lg text-[#464554]">최신 유니티 엔진 6 환경을 완벽하게 소화하는 고성능 교육 인프라</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div class="bento-card bg-white border border-slate-200/50 p-7 md:p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 bg-[#4648d4]/10 rounded-xl flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-[#4648d4] scale-110">memory</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3 border-l-4 border-[#4cd7f6] pl-3 text-[#111c2d]">RTX 4070 Ti SUPER</h3>
+              <p class="text-sm text-[#464554] leading-relaxed">최신 에이다 러브레이스 아키텍처 기반의 GPU로 실시간 그래픽스 연산과 고해상도 게임 뷰 환경을 안정적으로 지원합니다.</p>
+            </div>
+          </div>
+
+          <div class="bento-card bg-white border border-slate-200/50 p-7 md:p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 bg-[#00687a]/10 rounded-xl flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-[#00687a] scale-110">developer_board</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3 border-l-4 border-[#4cd7f6] pl-3 text-[#111c2d]">Intel i7 13th OC</h3>
+              <p class="text-sm text-[#464554] leading-relaxed">13세대 인텔 코어 프로세서의 오버클럭 세팅을 통해 복잡한 스크립트 컴파일과 빌드 시간을 획기적으로 단축시킵니다.</p>
+            </div>
+          </div>
+
+          <div class="bento-card bg-white border border-slate-200/50 p-7 md:p-8 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-[#595c5e] scale-110">monitor</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3 border-l-4 border-[#4cd7f6] pl-3 text-[#111c2d]">34-inch Ultra WQHD</h3>
+              <p class="text-sm text-[#464554] leading-relaxed">21:9 울트라 와이드 디스플레이를 구축하여 유니티 에디터 창과 C# 코드 편집기를 한눈에 배치하여 작업 효율을 극대화합니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curriculum Flow -->
+    <section class="page-section bg-[#f0f3ff] py-16 md:py-24 keep-all">
+      <div class="section-inner">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div class="space-y-5 md:space-y-6 min-w-0">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#111c2d] tracking-tight mb-8">Curriculum Flow</h2>
+
+            <div class="curriculum-card flex gap-5 md:gap-6 p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+              <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-[#4648d4] text-white rounded-full flex items-center justify-center">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                  <h4 class="text-xl font-bold text-[#111c2d]">Game Planning</h4>
+                  <span class="time-badge bg-[#4648d4]/10 text-[#4648d4] text-xs font-bold px-3 py-1 rounded-full shrink-0 w-fit">7시간/주</span>
+                </div>
+                <p class="text-sm text-[#464554] leading-relaxed mb-3">독창적인 아이디어 구상부터 시스템 설계 및 밸런싱을 아우르며 공모전 제출을 위한 공식 게임 기획서를 완성합니다.</p>
+                <div class="h-1 w-12 bg-[#4648d4] rounded-full"></div>
+              </div>
+            </div>
+
+            <div class="curriculum-card flex gap-5 md:gap-6 p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+              <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-[#4648d4] text-white rounded-full flex items-center justify-center">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">code</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                  <h4 class="text-xl font-bold text-[#111c2d]">Game Programming</h4>
+                  <span class="time-badge bg-[#4648d4]/10 text-[#4648d4] text-xs font-bold px-3 py-1 rounded-full shrink-0 w-fit">7시간/주</span>
+                </div>
+                <p class="text-sm text-[#464554] leading-relaxed mb-3">C#을 기반으로 유니티 6와 고도 엔진을 배웁니다. AI 도구를 활용한 바이브 코딩으로 프로토타입을 초고속으로 빌드합니다.</p>
+                <div class="h-1 w-12 bg-[#4648d4] rounded-full"></div>
+              </div>
+            </div>
+
+            <div class="curriculum-card flex gap-5 md:gap-6 p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+              <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-[#00687a] text-white rounded-full flex items-center justify-center">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">palette</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                  <h4 class="text-xl font-bold text-[#111c2d]">Computer Graphics</h4>
+                  <span class="time-badge bg-[#00687a]/10 text-[#00687a] text-xs font-bold px-3 py-1 rounded-full shrink-0 w-fit">6시간/주</span>
+                </div>
+                <p class="text-sm text-[#464554] leading-relaxed mb-3">포토샵과 일러스트레이터를 활용하여 게임에 필요한 2D 그래픽 원화 소스, UI/UX 에셋 및 스프라이트 시트를 제작합니다.</p>
+                <div class="h-1 w-12 bg-[#00687a] rounded-full"></div>
+              </div>
+            </div>
+
+            <div class="curriculum-card flex gap-5 md:gap-6 p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
+              <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-[#00687a] text-white rounded-full flex items-center justify-center">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">movie_filter</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2 gap-2">
+                  <h4 class="text-xl font-bold text-[#111c2d]">Media Content General</h4>
+                  <span class="time-badge bg-[#00687a]/10 text-[#00687a] text-xs font-bold px-3 py-1 rounded-full shrink-0 w-fit">6시간/주</span>
+                </div>
+                <p class="text-sm text-[#464554] leading-relaxed mb-3">캡컷으로 직접 만든 게임의 트레일러 영상을 편집하고, 노션 아카이빙을 통해 나만의 차별화된 포트폴리오를 구축합니다.</p>
+                <div class="h-1 w-12 bg-[#00687a] rounded-full"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/40 order-first lg:order-last mb-4 lg:mb-0">
+            <img alt="학생들이 게임 개발 프로젝트를 함께 확인하는 모습" class="w-full aspect-[4/3] object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/student5.jpg" />
+            <div class="absolute inset-0 bg-[#4648d4]/10 mix-blend-multiply"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Achievements & Awards -->
+    <section class="page-section bg-[#f9f9ff] py-16 md:py-24 keep-all">
+      <div class="section-inner">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+          <div class="shrink-0">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#111c2d] tracking-tight mb-2">Recent Achievements & Awards</h2>
+            <p class="text-base text-[#464554]">아현산업정보학교 게임제작과가 증명하는 압도적인 실적 (문구 클릭 시 상세 아카이브 이동)</p>
+          </div>
+          <div class="h-[2px] flex-1 min-w-[20px] bg-slate-200/60 mb-3 hidden md:block rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8">
+          <div class="bg-white border border-slate-200/60 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="text-2xl font-black text-[#4648d4]">2025</span>
+              <div class="h-[2px] flex-1 bg-slate-100"></div>
+            </div>
+
+            <div class="space-y-3">
+              <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/2025/contest25/up?authuser=0" target="_blank" rel="noopener noreferrer" class="award-item flex items-center justify-between p-4 border border-slate-100 rounded-xl bg-slate-50/40">
+                <div class="flex items-start gap-3 min-w-0">
+                  <span class="material-symbols-outlined text-[#00687a] mt-0.5 shrink-0">rocket_launch</span>
+                  <div class="min-w-0">
+                    <p class="font-bold text-slate-800 text-sm md:text-base">직업계고 IT분야 취업·창업UP 게임개발대회</p>
+                    <p class="text-xs text-slate-500 mt-0.5">본선 2팀 출전</p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-slate-400 text-sm link-icon shrink-0">open_in_new</span>
+              </a>
+
+              <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/2025/contest25/singu?authuser=0" target="_blank" rel="noopener noreferrer" class="award-item flex items-center justify-between p-4 border border-slate-100 rounded-xl bg-slate-50/40">
+                <div class="flex items-start gap-3 min-w-0">
+                  <span class="material-symbols-outlined text-[#00687a] mt-0.5 shrink-0">workspace_premium</span>
+                  <div class="min-w-0">
+                    <p class="font-bold text-slate-800 text-sm md:text-base">전국 중·고교생 게임 공모전</p>
+                    <p class="text-xs text-slate-500 mt-0.5">최우수상 1팀, 장려상 1팀, 입선 1팀</p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-slate-400 text-sm link-icon shrink-0">open_in_new</span>
+              </a>
+
+              <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/2025/contest25/kwc?authuser=0" target="_blank" rel="noopener noreferrer" class="award-item flex items-center justify-between p-4 border border-slate-100 rounded-xl bg-slate-50/40">
+                <div class="flex items-start gap-3 min-w-0">
+                  <span class="material-symbols-outlined text-[#00687a] mt-0.5 shrink-0">military_tech</span>
+                  <div class="min-w-0">
+                    <p class="font-bold text-slate-800 text-sm md:text-base">KWC(Korea Web Content Contest) 콘텐츠제작</p>
+                    <p class="text-xs text-slate-500 mt-0.5">장려상 수상</p>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-slate-400 text-sm link-icon shrink-0">open_in_new</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200/60 rounded-2xl p-6 md:p-8 shadow-sm">
+            <div class="flex items-center gap-4 mb-6">
+              <span class="text-2xl font-black text-[#4648d4]">2024</span>
+              <div class="h-[2px] flex-1 bg-slate-100"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-3">
+                <a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/gameup?authuser=0" target="_blank" rel="noopener noreferrer" class="award-item flex items-center justify-between p-4 border border-slate-100 rounded-xl bg-slate-50/40">
+                  <div class="flex items-start gap-3 min-w-0">
+                    <span class="material-symbols-outlined text-[#00687a] mt-0.5 shrink-0">emoji_events</span>
+                    <div class="min-w-0">
+                      <p class="font-bold text-slate-800 text-sm">직업계고 IT분야 취업·창업UP 게임개발대회</p>
+                      <p class="text-xs text-slate-500 mt-0.5">은상 1팀, 동상 1팀, 장려상 1팀, 특별상 3팀</p>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-slate-400 text-sm link-icon shrink-0">open_in_new</span>
+                </a>
+
+                <a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/singu?authuser=0" target="_blank" rel="noopener noreferrer" class="award-item flex items-center justify-between p-4 border border-slate-100 rounded-xl bg-slate-50/40">
+                  <div class="flex items-start gap-3 min-w-0">
+                    <span class="material-symbols-outlined text-[#00687a] mt-0.5 shrink-0">workspace_premium</span>
+                    <div class="min-w-0">
+                      <p class="font-bold text-slate-800 text-sm">전국 중·고교생 게임 공모전</p>
+                      <p class="text-xs text-slate-500 mt-0.5">우수상 1팀, 입선 2팀</p>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-slate-400 text-sm link-icon shrink-0">open_in_new</span>
+                </a>
+              </div>
+
+              <div class="space-y-3">
+                <a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/netmarble?authuser=0" target="_blank" rel="noopener noreferrer" class="award-item flex items-center justify-between p-4 border border-slate-100 rounded-xl bg-slate-50/40">
+                  <div class="flex items-start gap-3 min-w-0">
+                    <span class="material-symbols-outlined text-[#00687a] mt-0.5 shrink-0">school</span>
+                    <div class="min-w-0">
+                      <p class="font-bold text-slate-800 text-sm">넷마블 게임아카데미</p>
+                      <p class="text-xs text-slate-500 mt-0.5">대상팀 기획, 최우수상팀 프로그래밍/그래픽</p>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-slate-400 text-sm link-icon shrink-0">open_in_new</span>
+                </a>
+
+                <a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/2024kwc?authuser=0" target="_blank" rel="noopener noreferrer" class="award-item flex items-center justify-between p-4 border border-slate-100 rounded-xl bg-slate-50/40">
+                  <div class="flex items-start gap-3 min-w-0">
+                    <span class="material-symbols-outlined text-[#00687a] mt-0.5 shrink-0">military_tech</span>
+                    <div class="min-w-0">
+                      <p class="font-bold text-slate-800 text-sm">KWC 콘텐츠제작 경진대회</p>
+                      <p class="text-xs text-slate-500 mt-0.5">동상 수상</p>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-slate-400 text-sm link-icon shrink-0">open_in_new</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white border border-slate-200/50 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <h4 class="text-lg font-black text-[#4648d4] mb-4 border-b border-slate-100 pb-2">2023</h4>
+                <div class="space-y-3">
+                  <a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/%EC%A7%81%EC%97%85%EA%B3%84%EA%B3%A0%EA%B2%8C%EC%9E%84%EB%8C%80%ED%9A%8C?authuser=0" target="_blank" rel="noopener noreferrer" class="block group">
+                    <span class="font-bold block text-xs text-slate-700 group-hover:text-[#4648d4]">IT분야 취업·창업UP 대회가기 ↗</span>
+                    <span class="text-xs text-slate-500">장려상 1팀, 특별상 3팀</span>
+                  </a>
+                  <a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/juniorGameCompetition?authuser=0" target="_blank" rel="noopener noreferrer" class="block group">
+                    <span class="font-bold block text-xs text-slate-700 group-hover:text-[#4648d4]">전국 중·고교생 공모전 대회가기 ↗</span>
+                    <span class="text-xs text-slate-500">입선 4팀, 개인 1명</span>
+                  </a>
+                  <a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/be-the-ceos?authuser=0" target="_blank" rel="noopener noreferrer" class="block group">
+                    <span class="font-bold block text-xs text-slate-700 group-hover:text-[#4648d4]">사장되기 창업대회 대회가기 ↗</span>
+                    <span class="text-xs text-slate-500">금상 수상</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white border border-slate-200/50 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <h4 class="text-lg font-black text-[#4648d4] mb-4 border-b border-slate-100 pb-2">2022</h4>
+                <div class="space-y-3">
+                  <a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/ahyeoncontest?authuser=0" target="_blank" rel="noopener noreferrer" class="block group">
+                    <span class="font-bold block text-xs text-slate-700 group-hover:text-[#4648d4]">IT분야 취업·창업UP 대회가기 ↗</span>
+                    <span class="text-xs text-slate-500">장려상 1팀, 특별상 1팀</span>
+                  </a>
+                  <a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/%EC%9B%85%EC%A7%84%EC%94%BD%ED%81%AC%EB%B9%85%EA%B2%8C%EC%9E%84%EA%B0%9C%EB%B0%9C%EC%B1%8C%EB%A6%B0%EC%A7%80?authuser=0" target="_blank" rel="noopener noreferrer" class="block group">
+                    <span class="font-bold block text-xs text-slate-700 group-hover:text-[#4648d4]">웅진씽크빅 게임 챌린지 대회가기 ↗</span>
+                    <span class="text-xs text-slate-500">우수상 1팀</span>
+                  </a>
+                  <a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/be-the-ceos?authuser=0" target="_blank" rel="noopener noreferrer" class="block group">
+                    <span class="font-bold block text-xs text-slate-700 group-hover:text-[#4648d4]">사장되기 창업대회 대회가기 ↗</span>
+                    <span class="text-xs text-slate-500">은상 수상</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white border border-slate-200/50 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <h4 class="text-lg font-black text-[#4648d4] mb-4 border-b border-slate-100 pb-2">2021</h4>
+                <div class="space-y-3">
+                  <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeon-gamemaker/#h.hymk7b5bokba" target="_blank" rel="noopener noreferrer" class="block group">
+                    <span class="font-bold block text-xs text-slate-700 group-hover:text-[#4648d4]">IT분야 취업·창업UP 대회가기 ↗</span>
+                    <span class="text-xs text-slate-500">장려상 1팀 수상</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram CTA -->
+    <section class="instagram-cta page-section py-12 md:py-14 keep-all">
+      <div class="section-inner text-center">
+        <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-7">
+          당신의 꿈을 코딩하세요.
+        </h2>
+        <a class="instagram-button" href="https://www.instagram.com/ah_gamemaker_official/" target="_blank" rel="noopener noreferrer">
+          인스타그램 구경가기
+          <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-section bg-[#f9f9ff] py-10 keep-all">
+      <div class="section-inner">
+        <div class="text-sm text-[#111c2d]">
+          <p class="font-extrabold mb-3">아현산업정보학교 게임제작과</p>
+          <div class="space-y-1 text-[#111c2d]/80 leading-relaxed">
+            <p>📍 서울특별시 마포구 아현동 마포대로 249 아현산업정보학교 게임제작실습실</p>
+            <p>☎ 02-390-5864&nbsp;&nbsp; | &nbsp;&nbsp;✉ seomin@sen.go.kr</p>
+          </div>
+          <p class="mt-5 text-xs text-[#111c2d]/70">
+            © 2024 Ahyeon Game Lab. All rights reserved. High-Tech Education for Future Creators.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollLinks = document.querySelectorAll('a[href^="#"]');
+
+      scrollLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          const targetId = link.getAttribute("href");
+          const target = document.querySelector(targetId);
+
+          if (!target) return;
+
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

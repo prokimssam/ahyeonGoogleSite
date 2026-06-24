@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 게임제작프로그래밍 · 첫 번째 수행 프로젝트</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#4648D4;
+    --primary-container:#6063EE;
+    --secondary:#00687A;
+    --cyan:#4CD7F6;
+    --gold:#E8A700;
+    --surface:#F9F9FF;
+    --card:#FFFFFF;
+    --section-low:#F0F3FF;
+    --ink:#111C2D;
+    --gray:#464554;
+    --line:#C7C4D7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Hanken Grotesk','Noto Sans KR',sans-serif;background:var(--surface);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  a{text-decoration:none;color:inherit;}
+  section{padding:64px 0;}
+
+  /* ---------- Hero (Sites 헤더가 위에 있으므로 내부 내비는 생략) ---------- */
+  .hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-container) 60%,var(--secondary) 130%);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden;}
+  .hero .blob{position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;background:rgba(76,215,246,.22);}
+  .hero .blob2{position:absolute;left:-60px;bottom:-100px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08);}
+  .hero .inner{position:relative;z-index:2;max-width:760px;}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:7px 16px;border-radius:999px;margin-bottom:20px;}
+  .hero h1{font-size:42px;font-weight:800;line-height:1.18;letter-spacing:-.02em;margin-bottom:18px;}
+  .hero p{font-size:17px;color:rgba(255,255,255,.9);max-width:620px;}
+  .hero .meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px;}
+  .hero .meta div{display:flex;flex-direction:column;}
+  .hero .meta b{font-size:26px;font-weight:800;}
+  .hero .meta span{font-size:13px;color:rgba(255,255,255,.78);font-weight:600;}
+  @media(max-width:640px){.hero h1{font-size:30px;}}
+
+  /* ---------- Process pipeline ---------- */
+  .center{text-align:center;margin-bottom:44px;}
+  .center h2{font-size:30px;font-weight:800;margin-bottom:12px;letter-spacing:-.01em;}
+  .center p{font-size:16px;color:var(--gray);max-width:680px;margin:0 auto;}
+  .pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+  .step{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:14px;padding:22px 14px;text-align:center;transition:.25s;}
+  .step:hover{transform:translateY(-4px);box-shadow:0 10px 22px -8px rgba(70,72,212,.18);}
+  .step .num{font-size:12px;font-weight:800;color:var(--primary);letter-spacing:.1em;}
+  .step .em{font-size:30px;margin:8px 0 10px;}
+  .step h4{font-size:14px;font-weight:700;line-height:1.35;}
+  @media(max-width:900px){.pipe{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:520px){.pipe{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Vote chart ---------- */
+  .vote{background:var(--section-low);}
+  .chart{background:#fff;border:1px solid rgba(199,196,215,.5);border-radius:18px;padding:32px 30px;max-width:780px;margin:0 auto;}
+  .chart .q{font-size:17px;font-weight:700;margin-bottom:4px;}
+  .chart .sub{font-size:13px;color:var(--gray);margin-bottom:22px;}
+  .bar-row{display:grid;grid-template-columns:78px 1fr;align-items:center;gap:14px;margin-bottom:11px;}
+  .bar-row .nm{font-size:14px;font-weight:600;text-align:right;}
+  .bar-track{background:#EEF0FB;border-radius:8px;height:26px;position:relative;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--primary-container),var(--primary));display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:#fff;font-size:12px;font-weight:700;min-width:34px;transition:width 1s cubic-bezier(.2,.7,.2,1);}
+  .bar-row.zero .bar-fill{background:#C7C4D7;}
+  .bar-val{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:700;color:var(--gray);}
+
+  /* ---------- Student grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .gcard{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;position:relative;}
+  .gcard:hover{transform:translateY(-5px);box-shadow:0 16px 34px -12px rgba(70,72,212,.22);border-color:var(--primary-container);}
+  .gcard .top{padding:22px 22px 0;}
+  .rankchip{position:absolute;top:16px;right:16px;font-size:13px;font-weight:800;padding:5px 12px;border-radius:999px;background:var(--section-low);color:var(--primary);}
+  .rankchip.medal{background:linear-gradient(135deg,#FFE9A8,#E8A700);color:#5b4500;}
+  .gcard .title{font-size:21px;font-weight:800;letter-spacing:-.01em;line-height:1.2;margin-bottom:4px;padding-right:52px;}
+  .gcard .who{font-size:14px;color:var(--secondary);font-weight:700;margin-bottom:14px;}
+  .gcard .note{font-size:13.5px;color:var(--gray);line-height:1.6;min-height:44px;}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;padding:16px 22px 0;}
+  .badge{font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;border:1px solid rgba(199,196,215,.7);color:var(--gray);display:inline-flex;align-items:center;gap:5px;transition:.18s;}
+  .badge:hover{border-color:var(--primary);color:var(--primary);background:rgba(70,72,212,.04);}
+  .badge.done{background:rgba(0,104,122,.07);border-color:rgba(0,104,122,.25);color:var(--secondary);}
+  .stats{display:flex;gap:18px;padding:18px 22px;margin-top:auto;border-top:1px solid rgba(199,196,215,.4);}
+  .stat{display:flex;flex-direction:column;}
+  .stat b{font-size:18px;font-weight:800;color:var(--ink);}
+  .stat span{font-size:11.5px;color:var(--gray);font-weight:600;}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.grid{grid-template-columns:1fr;}.pipe .step h4{font-size:13px;}}
+
+  /* ---------- Footer (Sites 푸터가 사라지므로 직접 추가) ---------- */
+  footer{background:var(--ink);color:#fff;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding:44px 24px;max-width:1160px;margin:0 auto;}
+  .foot-brand{font-size:18px;font-weight:800;margin-bottom:6px;}
+  .foot-brand+p{font-size:13px;color:rgba(255,255,255,.6);max-width:430px;line-height:1.6;}
+  .foot-links{display:flex;flex-wrap:wrap;gap:14px;}
+  .foot-links a{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.2);padding:9px 16px;border-radius:999px;transition:.2s;}
+  .foot-links a:hover{background:#fff;color:var(--ink);}
+  .copy{text-align:center;font-size:12px;color:rgba(255,255,255,.45);padding:0 24px 28px;}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<section class="hero" style="padding-top:72px;">
+  <div class="blob"></div><div class="blob2"></div>
+  <div class="wrap inner">
+    <span class="eyebrow">2026 · 게임제작프로그래밍</span>
+    <h1>첫 번째 수행 프로젝트<br>모두의 창작 게임 포트폴리오</h1>
+    <p>‘김치런’으로 Unity를 처음 배운 학생들이, 각자의 아이디어로 자신만의 게임을 완성했습니다.
+       기획부터 제작 · 포트폴리오 · 영상 · 배포 · 상호 평가까지 — 한 명도 빠짐없이 전 과정을 끝까지 해냈습니다.</p>
+    <div class="meta">
+      <div><b id="m-count">11</b><span>참여 학생</span></div>
+      <div><b>5단계</b><span>완수한 제작 과정</span></div>
+      <div><b id="m-votes">36</b><span>서로에게 보낸 추천</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Process pipeline ===== -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <h2>모든 학생이 거친 제작 과정</h2>
+      <p>아래 카드의 모든 학생은 이 다섯 단계를 스스로 완수했습니다. 결과(게임)뿐 아니라, 만들어가는 과정 전체가 이들의 노력입니다.</p>
+    </div>
+    <div class="pipe">
+      <div class="step"><div class="num">STEP 1</div><div class="em">🎓</div><h4>Unity 학습<br>(김치런)</h4></div>
+      <div class="step"><div class="num">STEP 2</div><div class="em">🎮</div><h4>창작 게임<br>제작</h4></div>
+      <div class="step"><div class="num">STEP 3</div><div class="em">📝</div><h4>노션<br>포트폴리오</h4></div>
+      <div class="step"><div class="num">STEP 4</div><div class="em">🎬</div><h4>유튜브<br>영상 제작</h4></div>
+      <div class="step"><div class="num">STEP 5</div><div class="em">🚀</div><h4>itch.io<br>직접 배포</h4></div>
+      <div class="step"><div class="num">STEP 6</div><div class="em">💬</div><h4>친구 작품<br>상호 평가</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Vote chart ===== -->
+<section class="vote">
+  <div class="wrap">
+    <div class="center">
+      <h2>친구들이 뽑은 베스트 게임</h2>
+      <p>“첫 번째 게임 프로젝트를 제일 잘 만든 친구는?” (자기 제외 3명 선택 · 응답 12명)</p>
+    </div>
+    <div class="chart">
+      <div class="q">첫번째 게임 프로젝트를 제일 잘 만든 친구는? (자기 제외 3명)</div>
+      <div class="sub">응답 12개</div>
+      <div id="chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Student grid ===== -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <h2>학생별 게임 포트폴리오</h2>
+      <p>추천을 많이 받은 순으로 정렬했습니다. 각 카드의 버튼으로 노션 포트폴리오 · 유튜브 · itch.io 게임을 바로 확인하세요.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="foot-brand">아현 게임제작과</div>
+      <p>매년 학생들이 직접 게임을 기획 · 제작 · 배포하고 서로의 작품을 평가합니다. 미래의 게임 체인저들이 성장하는 곳.</p>
+    </div>
+    <div class="foot-links">
+      <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame" target="_blank">🏠 홈페이지</a>
+      <a href="https://www.instagram.com/ah_gamemaker_official/" target="_blank">📷 인스타그램</a>
+      <a href="https://www.youtube.com/@ahyeon_gamemaker" target="_blank">▶ 유튜브</a>
+    </div>
+  </div>
+  <div class="copy">© 2026 아현산업정보학교 게임제작과 · 게임제작프로그래밍 수행 프로젝트</div>
+</footer>
+
+<script>
+/* =======================================================================
+   학생 데이터 — 여기만 수정하면 차트와 카드가 자동으로 갱신됩니다.
+   - title : 게임 제목 (노션 URL에 제목이 없는 경우 임시값 → 실제 제목으로 교체)
+   - votes : 받은 추천 수
+   - notion / youtube / itch : 링크 (없으면 빈 문자열 "" 로 두면 버튼 숨김)
+   - note : 한 줄 개발 노트(가장 어려웠던 점/특징). 노션에서 한 문장씩 옮겨오면 좋습니다.
+   ======================================================================= */
+const STUDENTS = [
+  { name:"백시하", title:"LUCKLESS",          votes:9, notion:"https://www.notion.so/ahyeongame08/2026-LUCKLESS-785bec9433b3824c9d6f8112d6a18cdf", youtube:"", itch:"", note:"" },
+  { name:"김우현", title:"(게임 제목 입력)",   votes:8, notion:"https://notion.so/kneemajor/31fc278f7b388336a80e01c2fc080d8f", youtube:"", itch:"", note:"" },
+  { name:"문지홍", title:"Compass",           votes:7, notion:"https://www.notion.so/ahg1305/2026-Compass-3a6022d0af18833681ea01d7c9d13df6", youtube:"", itch:"", note:"" },
+  { name:"인준완", title:"(게임 제목 입력)",   votes:4, notion:"https://www.notion.so/ayheon10injunwan/be63341895c48299a25301a02880571e", youtube:"", itch:"", note:"" },
+  { name:"김건의", title:"(게임 제목 입력)",   votes:3, notion:"https://www.notion.so/pillll/2026-90971edf111a8264b1ca010812104e2f", youtube:"", itch:"", note:"" },
+  { name:"박세준", title:"(게임 제목 입력)",   votes:2, notion:"https://www.notion.so/2026-ada3c0977e6383b2b4438101fc103c99", youtube:"", itch:"", note:"" },
+  { name:"조동슬", title:"The Invasion",      votes:2, notion:"https://notion.so/jodongseulgame/2026-The-Invasion-12a5ebeb18df82e286be819519f1ba56", youtube:"", itch:"", note:"" },
+  { name:"박주환", title:"Rush",              votes:1, notion:"https://www.notion.so/2026-Rush-830952e5f4b182ba8eaf01b8e5b84221", youtube:"", itch:"", note:"" },
+  { name:"김소유", title:"TriRogue",          votes:0, notion:"https://notion.so/ksys-workspace/TriRogue-3503811323a6800692e2f33ca6322b50", youtube:"", itch:"", note:"" },
+  { name:"류도훈", title:"Cronos Clock",      votes:0, notion:"https://www.notion.so/yukimosin/2026-Cronos-Clock-8d5edd251cfa8365818601677ecf6ccc", youtube:"", itch:"", note:"" },
+  { name:"이태양", title:"Dungeon Survival",  votes:0, notion:"https://www.notion.so/2026-DUNGEON-SURVIVAL-231167b0c8ed827eaf05810dc5e0fcdb", youtube:"", itch:"", note:"" },
+];
+
+const RESPONDENTS = 12; // 투표 응답자 수 (퍼센트 계산 기준)
+
+/* ---- 정렬: 추천순(인기순) ---- */
+const sorted = [...STUDENTS].sort((a,b)=> b.votes - a.votes);
+
+/* ---- 상단 통계 ---- */
+document.getElementById('m-count').textContent = STUDENTS.length;
+document.getElementById('m-votes').textContent = STUDENTS.reduce((s,x)=>s+x.votes,0);
+
+/* ---- 투표 차트 (원본 시트 순서 유지) ---- */
+const chart = document.getElementById('chart');
+const maxV = Math.max(...STUDENTS.map(s=>s.votes), 1);
+STUDENTS.forEach(s=>{
+  const pct = Math.round(s.votes / RESPONDENTS * 1000)/10;
+  const w = Math.round(s.votes / maxV * 100);
+  const row = document.createElement('div');
+  row.className = 'bar-row' + (s.votes===0 ? ' zero' : '');
+  row.innerHTML = `
+    <div class="nm">${s.name}</div>
+    <div class="bar-track">
+      ${ s.votes>0
+        ? `<div class="bar-fill" style="width:0" data-w="${w}">${s.votes} (${pct}%)</div>`
+        : `<span class="bar-val">0 (0%)</span>` }
+    </div>`;
+  chart.appendChild(row);
+});
+// 막대 애니메이션
+requestAnimationFrame(()=>{ setTimeout(()=>{
+  document.querySelectorAll('.bar-fill').forEach(b=> b.style.width = b.dataset.w + '%');
+}, 120); });
+
+/* ---- 학생 카드 ---- */
+const medals = ['🥇','🥈','🥉'];
+const grid = document.getElementById('grid');
+sorted.forEach((s, i)=>{
+  const pct = Math.round(s.votes / RESPONDENTS * 1000)/10;
+  const rankLabel = i < 3 ? medals[i] : `#${i+1}`;
+  const rankClass = i < 3 ? 'rankchip medal' : 'rankchip';
+
+  // 링크 버튼: 값이 있으면 클릭형, 없으면 'done' 표시(완수했음을 보여주되 링크는 추후 추가)
+  const linkBadge = (url, icon, label) => url
+    ? `<a class="badge" href="${url}" target="_blank">${icon} ${label}</a>`
+    : `<span class="badge done">${icon} ${label} ✓</span>`;
+
+  const card = document.createElement('div');
+  card.className = 'gcard';
+  card.innerHTML = `
+    <span class="${rankClass}">${rankLabel}</span>
+    <div class="top">
+      <div class="title">${s.title}</div>
+      <div class="who">${s.name}</div>
+      <div class="note">${ s.note || '개발 과정에서 가장 도전적이었던 부분을 한 줄로 적어 주세요.' }</div>
+    </div>
+    <div class="badges">
+      ${ linkBadge(s.notion, '📝', '포트폴리오') }
+      ${ linkBadge(s.youtube, '🎬', '영상') }
+      ${ linkBadge(s.itch, '🚀', '게임 플레이') }
+    </div>
+    <div class="stats">
+      <div class="stat"><b>${s.votes}표</b><span>친구 추천 (${pct}%)</span></div>
+      <div class="stat"><b>전 과정</b><span>제작 단계 완수</span></div>
+    </div>`;
+  grid.appendChild(card);
+});
+</script>
+
+</body>
+</html>
