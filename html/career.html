@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아현산업정보학교 게임제작과 · 최근 4년 취업 및 진학결과</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#4648D4;
+    --primary-container:#6063EE;
+    --secondary:#00687A;
+    --cyan:#4CD7F6;
+    --gold:#E8A700;
+    --surface:#F9F9FF;
+    --card:#FFFFFF;
+    --section-low:#F0F3FF;
+    --ink:#111C2D;
+    --gray:#464554;
+    --line:#C7C4D7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Hanken Grotesk','Noto Sans KR',sans-serif;background:var(--surface);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word;overflow-x:hidden;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  a{text-decoration:none;color:inherit;}
+  section{padding:64px 0;}
+  .center{text-align:center;margin-bottom:44px;}
+  .center h2{font-size:30px;font-weight:800;margin-bottom:12px;letter-spacing:-.01em;}
+  .center p{font-size:16px;color:var(--gray);max-width:680px;margin:0 auto;}
+
+  /* ---------- Hero ---------- */
+  .hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-container) 60%,var(--secondary) 130%);color:#fff;padding:78px 0 66px;position:relative;overflow:hidden;}
+  .hero .blob{position:absolute;right:-90px;top:-90px;width:360px;height:360px;border-radius:50%;background:rgba(76,215,246,.22);}
+  .hero .blob2{position:absolute;left:-60px;bottom:-110px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.08);}
+  .hero .inner{position:relative;z-index:2;max-width:780px;}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:7px 16px;border-radius:999px;margin-bottom:20px;}
+  .hero h1{font-size:42px;font-weight:800;line-height:1.18;letter-spacing:-.02em;margin-bottom:18px;}
+  .hero p{font-size:17px;color:rgba(255,255,255,.9);max-width:640px;}
+  .hero .meta{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;}
+  .hero .meta div{display:flex;flex-direction:column;}
+  .hero .meta b{font-size:30px;font-weight:800;}
+  .hero .meta span{font-size:13px;color:rgba(255,255,255,.78);font-weight:600;margin-top:2px;}
+  @media(max-width:640px){.hero h1{font-size:30px;}}
+
+  /* ---------- Summary stat cards ---------- */
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .scard{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:18px;padding:26px 22px;text-align:center;transition:.25s;}
+  .scard:hover{transform:translateY(-4px);box-shadow:0 14px 30px -12px rgba(70,72,212,.2);border-color:var(--primary-container);}
+  .scard .em{font-size:30px;}
+  .scard b{display:block;font-size:32px;font-weight:800;color:var(--primary);margin:8px 0 4px;letter-spacing:-.01em;}
+  .scard span{font-size:13px;color:var(--gray);font-weight:600;}
+  @media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Year timeline ---------- */
+  .years{background:var(--section-low);}
+  .ycard{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:22px;overflow:hidden;margin-bottom:30px;transition:.25s;box-shadow:0 2px 6px rgba(17,28,45,.04);}
+  .ycard:hover{box-shadow:0 18px 38px -16px rgba(70,72,212,.22);border-color:var(--primary-container);}
+  .ycard:last-child{margin-bottom:0;}
+  .yhead{display:flex;align-items:center;gap:18px;padding:24px 30px;color:#fff;background:linear-gradient(120deg,var(--primary) 0%,var(--primary-container) 100%);position:relative;overflow:hidden;}
+  .ycard.alt .yhead{background:linear-gradient(120deg,var(--secondary) 0%,#0a8298 100%);}
+  .yhead .yr{font-size:34px;font-weight:800;line-height:1;letter-spacing:-.02em;}
+  .yhead .yr small{display:block;font-size:13px;font-weight:600;opacity:.82;letter-spacing:.04em;margin-top:6px;}
+  .yhead .ytag{margin-left:auto;font-size:13px;font-weight:700;background:rgba(255,255,255,.18);padding:8px 16px;border-radius:999px;backdrop-filter:blur(6px);}
+  .ybody{padding:26px 30px 30px;display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:720px){.ybody{grid-template-columns:1fr;}}
+
+  .block{background:var(--surface);border:1px solid rgba(199,196,215,.45);border-radius:16px;padding:20px 22px;}
+  .block.full{grid-column:1 / -1;}
+  .block.gold{background:linear-gradient(180deg,#FFF9EC,#FFFDF7);border-color:rgba(232,167,0,.4);}
+  .block h4{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:14px;letter-spacing:-.01em;}
+  .block h4 .ic{font-size:18px;}
+  .block h4 .cat{font-size:11px;font-weight:700;color:var(--primary);background:rgba(70,72,212,.08);padding:3px 9px;border-radius:999px;margin-left:auto;}
+  .block.gold h4 .cat{color:#9a6f00;background:rgba(232,167,0,.14);}
+
+  .row{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--ink);padding:7px 0;border-top:1px dashed rgba(199,196,215,.6);}
+  .row:first-of-type{border-top:none;}
+  .row .arrow{color:var(--primary);font-weight:800;flex:none;margin-top:1px;}
+  .block.gold .row .arrow{color:var(--gold);}
+  .row .txt{flex:1;line-height:1.55;}
+  .row .num{flex:none;font-weight:800;color:var(--primary);background:rgba(70,72,212,.07);border-radius:999px;padding:2px 11px;font-size:13px;align-self:center;}
+  .row .hl{font-weight:700;color:var(--secondary);}
+  .row .sub{display:block;font-size:12.5px;color:var(--gray);margin-top:2px;}
+
+  /* employment person chip rows */
+  .person{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px dashed rgba(199,196,215,.6);}
+  .person:first-of-type{border-top:none;}
+  .person .av{width:38px;height:38px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:18px;background:linear-gradient(135deg,var(--cyan),var(--primary-container));color:#fff;}
+  .person .info b{font-size:14.5px;font-weight:800;}
+  .person .info span{display:block;font-size:13px;color:var(--gray);}
+  .person .info span .co{font-weight:700;color:var(--ink);}
+
+  /* ---------- Highlight: 청강 ---------- */
+  .hl-band{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;align-items:center;background:#fff;border:1px solid rgba(199,196,215,.5);border-radius:22px;padding:34px;}
+  .hl-band .big{font-size:60px;font-weight:800;color:var(--primary);line-height:1;letter-spacing:-.03em;}
+  .hl-band .big small{font-size:18px;font-weight:700;color:var(--gray);margin-left:6px;}
+  .hl-band h3{font-size:23px;font-weight:800;margin:10px 0 10px;letter-spacing:-.01em;}
+  .hl-band p{font-size:15px;color:var(--gray);line-height:1.65;}
+  .hl-pills{display:flex;flex-direction:column;gap:12px;}
+  .hl-pill{display:flex;align-items:center;gap:14px;background:var(--section-low);border-radius:14px;padding:14px 18px;}
+  .hl-pill .yy{font-size:15px;font-weight:800;color:var(--primary);flex:none;width:62px;}
+  .hl-pill .bar{flex:1;height:12px;border-radius:999px;background:#E3E5F6;overflow:hidden;}
+  .hl-pill .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--primary-container),var(--primary));}
+  .hl-pill .cnt{font-size:14px;font-weight:800;flex:none;width:36px;text-align:right;}
+  @media(max-width:720px){.hl-band{grid-template-columns:1fr;}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#fff;}
+  .foot{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;padding:44px 24px;max-width:1160px;margin:0 auto;}
+  .foot-brand{font-size:18px;font-weight:800;margin-bottom:8px;}
+  .foot p{font-size:13px;color:rgba(255,255,255,.62);line-height:1.7;}
+  .copy{text-align:center;font-size:12px;color:rgba(255,255,255,.45);padding:0 24px 28px;}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="blob"></div><div class="blob2"></div>
+  <div class="wrap inner">
+    <span class="eyebrow">2022 – 2025 · 진로 성과</span>
+    <h1>한 해도 빠짐없이,<br>학생들은 다음 무대로 나아갔습니다</h1>
+    <p>최근 4개 학년도 동안 아현 게임제작과 수료생들은 게임·컴퓨터 관련 학과 진학은 물론,
+       일학습병행제를 통한 취업과 진학을 동시에 이뤄냈습니다. 매년 이어지는 결과로 확인하세요.</p>
+    <div class="meta">
+      <div><b>59명</b><span>최근 4년 수료생 진로</span></div>
+      <div><b>7명+</b><span>청강문화산업대 진학</span></div>
+      <div><b>6명</b><span>취업 · 일학습병행</span></div>
+      <div><b>4년</b><span>연속 진학·취업 성과</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Summary stats ===== -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <h2>숫자로 보는 진로 성과</h2>
+      <p>게임 산업의 길로, 컴퓨터·소프트웨어의 길로. 학생들이 선택한 다양한 진로를 한눈에 정리했습니다.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="scard"><div class="em">🎮</div><b>31명</b><span>게임 관련 학과 진학</span></div>
+      <div class="scard"><div class="em">💻</div><b>22명</b><span>컴퓨터·SW 관련 진학</span></div>
+      <div class="scard"><div class="em">🎓</div><b>7명+</b><span>청강문화산업대 게임콘텐츠스쿨</span></div>
+      <div class="scard"><div class="em">💼</div><b>6명</b><span>취업 / 일학습병행제</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Year-by-year ===== -->
+<section class="years">
+  <div class="wrap">
+    <div class="center">
+      <h2>학년도별 취업 및 진학결과</h2>
+      <p>가장 최근 학년도부터 순서대로 살펴봅니다. (개인정보 보호를 위해 일부 이름은 가립니다)</p>
+    </div>
+
+    <!-- 2025 -->
+    <div class="ycard">
+      <div class="yhead">
+        <div class="yr">2025<small>학년도 수료생 진학결과</small></div>
+        <div class="ytag">⭐ 진학 15명</div>
+      </div>
+      <div class="ybody">
+        <div class="block">
+          <h4><span class="ic">🎮</span> 게임 관련 학과 진학 <span class="cat">12명</span></h4>
+          <div class="row"><span class="arrow">▶</span><span class="txt"><span class="hl">청강문화산업대학교</span> 게임콘텐츠스쿨 <span class="sub">프로그래밍 2명</span></span><span class="num">2명</span></div>
+          <div class="row"><span class="arrow">▶</span><span class="txt">2~3년제 게임 관련 학과</span><span class="num">9명</span></div>
+          <div class="row"><span class="arrow">▶</span><span class="txt">4년제 게임 관련 학과</span><span class="num">1명</span></div>
+        </div>
+        <div class="block">
+          <h4><span class="ic">💻</span> 컴퓨터 관련 학과 진학 <span class="cat">3명</span></h4>
+          <div class="row"><span class="arrow">▶</span><span class="txt">2~3년제 컴퓨터 관련 학과</span><span class="num">3명</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="ycard alt">
+      <div class="yhead">
+        <div class="yr">2024<small>학년도 수료생 진학결과</small></div>
+        <div class="ytag">⭐ 진학 13명</div>
+      </div>
+      <div class="ybody">
+        <div class="block">
+          <h4><span class="ic">🎮</span> 게임 관련 학과 진학 <span class="cat">8명</span></h4>
+          <div class="row"><span class="arrow">▶</span><span class="txt"><span class="hl">청강문화산업대학교</span> 게임콘텐츠스쿨 <span class="sub">프로그래밍 2명 · 기획 1명</span></span><span class="num">3명</span></div>
+          <div class="row"><span class="arrow">▶</span><span class="txt">2~3년제 게임 관련 학과</span><span class="num">5명</span></div>
+        </div>
+        <div class="block">
+          <h4><span class="ic">💻</span> 컴퓨터 관련 학과 진학 <span class="cat">5명</span></h4>
+          <div class="row"><span class="arrow">▶</span><span class="txt">4년제 컴퓨터 관련 학과</span><span class="num">3명</span></div>
+          <div class="row"><span class="arrow">▶</span><span class="txt">2~3년제 컴퓨터 관련 학과</span><span class="num">2명</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="ycard">
+      <div class="yhead">
+        <div class="yr">2023<small>학년도 수료생 취업 및 진학결과</small></div>
+        <div class="ytag">⭐ 취업 · 진학</div>
+      </div>
+      <div class="ybody">
+        <div class="block gold full">
+          <h4><span class="ic">🏆</span> 취업과 진학을 동시에!! <span class="cat">고숙련 일학습병행제</span></h4>
+          <p style="font-size:13.5px;color:var(--gray);margin:-6px 0 12px;">배화여자대학교 모바일소프트웨어과</p>
+          <div class="person"><div class="av">🧑‍💻</div><div class="info"><b>백O립</b><span><span class="co">(주)고고에프앤디</span> · 프로그래머</span></div></div>
+          <div class="person"><div class="av">🧑‍💻</div><div class="info"><b>한O</b><span><span class="co">(주)고고에프앤디</span> · 프로그래머</span></div></div>
+        </div>
+        <div class="block">
+          <h4><span class="ic">🎮</span> 게임 관련 학과 진학 <span class="cat">4명</span></h4>
+          <div class="row"><span class="arrow">▶</span><span class="txt"><span class="hl">청강문화산업대학교</span> 게임콘텐츠스쿨 <span class="sub">프로그래밍 2명</span></span><span class="num">2명</span></div>
+          <div class="row"><span class="arrow">▶</span><span class="txt">2~3년제 게임 관련 학과</span><span class="num">2명</span></div>
+        </div>
+        <div class="block">
+          <h4><span class="ic">💻</span> 컴퓨터 관련 학과 진학 <span class="cat">9명</span></h4>
+          <div class="row"><span class="arrow">▶</span><span class="txt">2~3년제 컴퓨터 관련 학과</span><span class="num">8명</span></div>
+          <div class="row"><span class="arrow">▶</span><span class="txt">4년제 컴퓨터 관련 학과</span><span class="num">1명</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022 -->
+    <div class="ycard alt">
+      <div class="yhead">
+        <div class="yr">2022<small>학년도 수료생 취업 및 진학결과</small></div>
+        <div class="ytag">⭐ 취업 · 진학</div>
+      </div>
+      <div class="ybody">
+        <div class="block">
+          <h4><span class="ic">💼</span> 취업 <span class="cat">2명</span></h4>
+          <div class="person"><div class="av">🧑‍💻</div><div class="info"><b>김O준</b><span><span class="co">(주)네오에스앤지</span> · 프로그래머</span></div></div>
+          <div class="person"><div class="av">☕</div><div class="info"><b>김O인</b><span><span class="co">탐앤탐스</span> · 바리스타</span></div></div>
+        </div>
+        <div class="block gold">
+          <h4><span class="ic">🏆</span> 취업+진학 동시에!! <span class="cat">일학습병행</span></h4>
+          <p style="font-size:13px;color:var(--gray);margin:-6px 0 12px;">경기과학기술대학교 스마트제어소프트웨어과</p>
+          <div class="person"><div class="av">🧑‍💻</div><div class="info"><b>문O준</b><span><span class="co">(주)퓨너스</span> · 프로그래머</span></div></div>
+          <div class="person"><div class="av">🧑‍💻</div><div class="info"><b>조O빈</b><span><span class="co">(주)대한씨엔엠</span> · 프로그래머·기획</span></div></div>
+        </div>
+        <div class="block full">
+          <h4><span class="ic">🎓</span> 대학 진학 <span class="cat">12명</span></h4>
+          <div class="row"><span class="arrow">▶</span><span class="txt">게임 관련 학과</span><span class="num">7명</span></div>
+          <div class="row"><span class="arrow">▶</span><span class="txt">컴퓨터 관련 학과 <span class="sub">4년제 3명 포함</span></span><span class="num">5명</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Highlight: 청강 ===== -->
+<section>
+  <div class="wrap">
+    <div class="hl-band">
+      <div>
+        <div class="big">7명<small>+</small></div>
+        <h3>매년 이어지는 청강문화산업대 진학</h3>
+        <p>국내 대표 게임 특성화 대학인 <strong>청강문화산업대학교 게임콘텐츠스쿨</strong>로,
+           최근 4년간 꾸준히 학생들이 진학하고 있습니다. 프로그래밍과 기획 전공을 중심으로
+           아현에서 다진 실력이 그대로 이어집니다.</p>
+      </div>
+      <div class="hl-pills">
+        <div class="hl-pill"><span class="yy">2022</span><span class="bar"><i style="width:50%"></i></span><span class="cnt">포함</span></div>
+        <div class="hl-pill"><span class="yy">2023</span><span class="bar"><i style="width:66%"></i></span><span class="cnt">2명</span></div>
+        <div class="hl-pill"><span class="yy">2024</span><span class="bar"><i style="width:100%"></i></span><span class="cnt">3명</span></div>
+        <div class="hl-pill"><span class="yy">2025</span><span class="bar"><i style="width:66%"></i></span><span class="cnt">2명</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="foot-brand">아현산업정보학교 게임제작과</div>
+      <p>📍 서울특별시 마포구 마포대로 249 아현산업정보학교 게임제작실습실<br>
+         ☎ 02-390-5864 &nbsp;|&nbsp; ✉ seomin@sen.go.kr</p>
+    </div>
+    <div>
+      <p>게임을 좋아하는 학생에서, 게임을 만드는 학생으로.<br>
+         그리고 다음 무대로 — 진학과 취업까지 함께합니다.</p>
+    </div>
+  </div>
+  <div class="copy">© 2024 Ahyeon Game Lab. All rights reserved. High-Tech Education for Future Creators.</div>
+</footer>
+
+</body>
+</html>
