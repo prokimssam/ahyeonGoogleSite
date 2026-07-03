@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>교외 대회 수상 현황 | 아현산업정보학교 게임제작전공</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-primary-container": "#fffbff",
+                "outline": "#767586",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-fixed": "#191c1e",
+                "on-secondary-fixed": "#001f26",
+                "on-secondary-container": "#006172",
+                "surface-container-high": "#dee8ff",
+                "surface-bright": "#f9f9ff",
+                "primary-fixed-dim": "#c0c1ff",
+                "secondary-container": "#06B6D4",
+                "surface-container-highest": "#d8e3fb",
+                "surface": "#ffffff",
+                "inverse-on-surface": "#ecf1ff",
+                "surface-dim": "#cfdaf2",
+                "secondary-fixed": "#acedff",
+                "surface-variant": "#d8e3fb",
+                "on-tertiary-container": "#fbfdff",
+                "outline-variant": "#e2e8f0",
+                "surface-tint": "#6366F1",
+                "on-primary-fixed": "#07006c",
+                "secondary-fixed-dim": "#4cd7f6",
+                "surface-container-low": "#f8fafc",
+                "primary": "#6366F1",
+                "inverse-primary": "#c0c1ff",
+                "background": "#f8fafc",
+                "tertiary-fixed": "#e0e3e5",
+                "on-primary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed-variant": "#004e5c",
+                "tertiary-container": "#727577",
+                "secondary": "#06B6D4",
+                "on-error-container": "#93000a",
+                "tertiary": "#595c5e",
+                "on-surface-variant": "#64748b",
+                "error": "#ba1a1a",
+                "primary-fixed": "#e0e7ff",
+                "on-background": "#0f172a",
+                "on-tertiary": "#ffffff",
+                "on-primary-fixed-variant": "#4338ca",
+                "on-error": "#ffffff",
+                "on-surface": "#0f172a",
+                "surface-container": "#f1f5f9",
+                "inverse-surface": "#1e293b",
+                "tertiary-fixed-dim": "#c4c7c9",
+                "primary-container": "#6366f1",
+                "on-tertiary-fixed-variant": "#444749",
+                "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "2xl": "12px",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "sans": ["Hanken Grotesk", "Noto Sans KR", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .badge-gold { @apply bg-[#FFD700] text-[#4A3B00] border border-[#E6C200]; }
+        .badge-silver { @apply bg-[#C0C0C0] text-[#333333] border border-[#A9A9A9]; }
+        .badge-bronze { @apply bg-[#CD7F32] text-[#FFFFFF] border border-[#B87333]; }
+        .badge-indigo { @apply bg-[#6366F1] text-white border border-[#4F46E5]; }
+        .badge-cyan { @apply bg-[#06B6D4] text-white border border-[#0891B2]; }
+        .badge-gray { @apply bg-[#F1F5F9] text-[#64748B] border border-[#E2E8F0]; }
+        
+        .award-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+        }
+        .award-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.05);
+        }
+        .year-marker {
+            position: relative;
+        }
+        .year-marker::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            background: #6366F1;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-outline-variant px-4 lg:px-10 py-3 bg-surface rounded-t-2xl">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[-0.015em]">교외 대회 수상 현황</h2>
+</div>
+<div class="flex gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-container-low text-on-surface gap-2 text-sm font-bold px-3">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-container-low text-on-surface gap-2 text-sm font-bold px-3">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+</header>
+<main class="flex h-full flex-col bg-surface p-4 lg:p-10">
+<!-- Intro Section -->
+<div class="flex flex-col gap-4 mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-bold w-fit">
+                ACHIEVEMENTS
+            </div>
+<h1 class="text-on-surface text-4xl md:text-5xl font-black leading-loose tracking-tight">아현의 빛나는 도전,<br/>그 기록들을 공유합니다</h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-snug">게임제작전공 학생들의 끊임없는 열정이 맺은 결실입니다.<br/>5년간 35개 이상의 팀이 전국 단위 공모전에서 그 실력을 입증했습니다.</p>
+</div>
+<!-- Awards List Grouped by Year -->
+<div class="flex flex-col gap-16">
+<!-- 2025 -->
+<section class="flex flex-col gap-8">
+<div class="year-marker">
+<h3 class="text-3xl font-black text-on-surface">2025</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/singu?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-slate-300"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDXrf2IYAH470peBvZal5eJsNMm4x8b1kiY3Lymt14D8VEI_A0p_5ID_qC4KS0P0CzDZ1O4-p-C3B4c2uOLQRGNzG33AfCnnjGN5ZUcQm3I7rkdezv9zM8XfGuIsaucvnfge7gVyNLpqgOF1Cy4UyUg_Pj5veaIPklEeJ0Exn2efrXm6urJAQlSPSt7_Qhn1L3RlW_sAl8p-VjckY5pGYM0tThPytQ4nQAgI7RXe60=w1280"/></span>
+<div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] px-2 py-1 rounded">수상 현장 사진</div>
+</div>
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">전국중고교생 게임공모전 (신구대학교)</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">최우수상 1팀</span>
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">장려상 1팀</span>
+<span class="badge-gray px-3 py-1 rounded-full text-xs font-bold">입선 1팀</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/up?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden">
+<span class="material-symbols-outlined text-4xl text-slate-300">image</span>
+</div>
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">직업계고 IT 게임개발대회 (게임인재단)</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-bronze px-3 py-1 rounded-full text-xs font-bold">동상 2팀</span>
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">특별상 1팀</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/chungkang?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">청강 게임대전 with Unity</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-gray px-3 py-1 rounded-full text-xs font-bold">입선</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/kwc?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">KWC</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">장려상</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+<!-- 2024 -->
+<section class="flex flex-col gap-8">
+<div class="year-marker">
+<h3 class="text-3xl font-black text-on-surface">2024</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/netmarble?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="aspect-video bg-slate-100 flex items-center justify-center relative">
+<span class="material-symbols-outlined text-4xl text-slate-300">workspace_premium</span>
+</div>
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">넷마블 게임아카데미 9기</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-gold px-3 py-1 rounded-full text-xs font-bold">대상 1팀</span>
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">최우수상 1팀</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/gameup?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">직업계고 IT 게임개발대회</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-silver px-3 py-1 rounded-full text-xs font-bold">은상 1팀</span>
+<span class="badge-bronze px-3 py-1 rounded-full text-xs font-bold">동상 1팀</span>
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">장려상 1팀</span>
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">특별상 3팀</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/singu?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">전국중고교생 게임공모전</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">우수상 1팀</span>
+<span class="badge-gray px-3 py-1 rounded-full text-xs font-bold">입선 2팀</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/2024kwc?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">제23회 KWC</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-bronze px-3 py-1 rounded-full text-xs font-bold">동상</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+<!-- 2023 -->
+<section class="flex flex-col gap-8">
+<div class="year-marker">
+<h3 class="text-3xl font-black text-on-surface">2023</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/be-the-ceos" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="aspect-video bg-slate-100 flex items-center justify-center relative">
+<span class="material-symbols-outlined text-4xl text-slate-300">lightbulb</span>
+</div>
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">Be the CEOs 창업대회</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-gold px-3 py-1 rounded-full text-xs font-bold">서울시 금상</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/%EC%A7%81%EC%97%85%EA%B3%84%EA%B3%A0%EA%B2%8C%EC%9E%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">직업계고 IT 게임개발대회</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">장려상 1팀</span>
+<span class="badge-indigo px-3 py-1 rounded-full text-xs font-bold">특별상 3팀</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/juniorGameCompetition" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">전국중고교생 게임공모전</h4>
+<div class="flex flex-wrap gap-2">
+<span class="badge-gray px-3 py-1 rounded-full text-xs font-bold">입선 4팀</span>
+</div>
+</div>
+</a>
+<a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/%EA%B8%B0%ED%83%80-%EC%88%98%EC%83%81" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
+<div class="p-6 flex flex-col gap-3">
+<h4 class="text-on-surface text-lg font-bold">개인 표창</h4>
+<p class="text-xs text-on-surface-variant">마포구 모범학생 표창 / KPC 정보화리더상</p>
+</div>
+</a>
+</div>
+</section>
+<!-- 2022-2021 (Older years with spread layout) -->
+<section class="flex flex-col gap-8">
+<div class="year-marker">
+<h3 class="text-3xl font-black text-on-surface">2022 &amp; 2021</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/%EC%9B%85%EC%A7%84%EC%94%BD%ED%81%AC%EB%B9%85%EA%B2%8C%EC%9E%84%EA%B0%9C%EB%B0%9C%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener noreferrer" class="award-card block p-6 rounded-2xl bg-white border border-outline-variant">
+<span class="text-[10px] font-bold text-primary mb-2 block">2022</span>
+<h4 class="text-on-surface font-bold mb-3">웅진씽크빅 게임개발 챌린지</h4>
+<span class="badge-indigo px-2 py-0.5 rounded-full text-[10px] font-bold">본선 미래상</span>
+</a>
+<div class="award-card p-6 rounded-2xl bg-white border border-outline-variant">
+<span class="text-[10px] font-bold text-primary mb-2 block">2022</span>
+<h4 class="text-on-surface font-bold mb-3">NCSoft 울산 게임기획 공모전</h4>
+<span class="badge-indigo px-2 py-0.5 rounded-full text-[10px] font-bold">우수상</span>
+</div>
+<div class="award-card p-6 rounded-2xl bg-white border border-outline-variant">
+<span class="text-[10px] font-bold text-primary mb-2 block">2022</span>
+<h4 class="text-on-surface font-bold mb-3">Be the CEOs 창업대회</h4>
+<span class="badge-silver px-2 py-0.5 rounded-full text-[10px] font-bold">서울시 은상</span>
+</div>
+<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeon-gamemaker/#h.hymk7b5bokba" target="_blank" rel="noopener noreferrer" class="award-card block p-6 rounded-2xl bg-white border border-outline-variant">
+<span class="text-[10px] font-bold text-primary mb-2 block">2021</span>
+<h4 class="text-on-surface font-bold mb-3">직업계고 IT 게임개발대회</h4>
+<span class="badge-indigo px-2 py-0.5 rounded-full text-[10px] font-bold">장려상</span>
+</a>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Navigation -->
+<nav class="flex items-center justify-around border border-t-0 border-solid border-outline-variant bg-surface px-10 py-4 rounded-b-2xl shadow-sm">
+<div class="flex flex-col items-center gap-1 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">home</span>
+<p class="text-[10px] font-medium">홈</p>
+</div>
+<div class="flex flex-col items-center gap-1 cursor-pointer text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trophy</span>
+<p class="text-[10px] font-bold">수상 실적</p>
+</div>
+<div class="flex flex-col items-center gap-1 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">collections</span>
+<p class="text-[10px] font-medium">갤러리</p>
+</div>
+<div class="flex flex-col items-center gap-1 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">contact_support</span>
+<p class="text-[10px] font-medium">문의</p>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</body></html>
