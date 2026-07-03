@@ -69,7 +69,36 @@
                 "full": "9999px"
             },
             "fontFamily": {
-                "sans": ["Hanken Grotesk", "Noto Sans KR", "sans-serif"]
+                "sans": ["Hanken Grotesk", "Noto Sans KR", "sans-serif"],
+                "headline-lg": ["Hanken Grotesk"],
+                "body-lg": ["Hanken Grotesk"],
+                "mono-label": ["Hanken Grotesk"],
+                "headline-xl": ["Hanken Grotesk"],
+                "headline-md": ["Hanken Grotesk"],
+                "label-caps": ["Hanken Grotesk"],
+                "headline-xl-mobile": ["Hanken Grotesk"],
+                "body-md": ["Hanken Grotesk"]
+            },
+            "spacing": {
+                "md": "24px",
+                "lg": "48px",
+                "gutter": "24px",
+                "xs": "8px",
+                "xl": "80px",
+                "margin-mobile": "16px",
+                "margin-desktop": "64px",
+                "sm": "16px",
+                "base": "4px"
+            },
+            "fontSize": {
+                "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "mono-label": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
             }
           }
         }
@@ -108,40 +137,17 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-surface">
-<div class="relative flex h-auto min-h-screen w-full flex-col bg-background group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<div class="px-4 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-<!-- Header -->
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-outline-variant px-4 lg:px-10 py-3 bg-surface rounded-t-2xl">
-<div class="flex items-center gap-4 text-on-surface">
-<div class="size-6 text-primary">
-<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
-</svg>
+<body class="bg-surface selection:bg-primary/20 text-on-surface">
+<main class="pt-lg pb-xl">
+<!-- Section 1: Compact Header (school_award 기준) -->
+<section class="max-w-[1440px] mx-auto px-gutter mb-lg">
+<div class="flex flex-col gap-xs border-l-4 border-[#4648d4] pl-md">
+<h1 class="font-headline-xl text-headline-xl text-on-surface">교외 대회 수상 현황</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">게임제작전공 학생들이 전국 단위 공모전에서 실력을 입증했습니다.</p>
 </div>
-<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[-0.015em]">교외 대회 수상 현황</h2>
-</div>
-<div class="flex gap-2">
-<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-container-low text-on-surface gap-2 text-sm font-bold px-3">
-<span class="material-symbols-outlined">share</span>
-</button>
-<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-surface-container-low text-on-surface gap-2 text-sm font-bold px-3">
-<span class="material-symbols-outlined">search</span>
-</button>
-</div>
-</header>
-<main class="flex h-full flex-col bg-surface p-4 lg:p-10">
-<!-- Intro Section -->
-<div class="flex flex-col gap-4 mb-16">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed text-primary text-xs font-bold w-fit">
-                ACHIEVEMENTS
-            </div>
-<h1 class="text-on-surface text-4xl md:text-5xl font-black leading-loose tracking-tight">아현의 빛나는 도전,<br/>그 기록들을 공유합니다</h1>
-<p class="text-on-surface-variant text-lg max-w-2xl leading-snug">게임제작전공 학생들의 끊임없는 열정이 맺은 결실입니다.<br/>5년간 35개 이상의 팀이 전국 단위 공모전에서 그 실력을 입증했습니다.</p>
-</div>
+</section>
 <!-- Awards List Grouped by Year -->
+<section class="max-w-[1440px] mx-auto px-gutter">
 <div class="flex flex-col gap-16">
 <!-- 2025 -->
 <section class="flex flex-col gap-8">
@@ -165,7 +171,7 @@
 </a>
 <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/up?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
 <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden">
-<img src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/singu2025.jpg" alt="전국중고교생 게임공모전 수상 현장" class="w-full h-full object-cover"/>
+<img src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/jikup2025.jpg" alt="전국중고교생 게임공모전 수상 현장" class="w-full h-full object-cover"/>
 <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] px-2 py-1 rounded">수상 현장 사진</div>
 </div>
 <div class="p-6 flex flex-col gap-3">
@@ -308,7 +314,7 @@
 </a>
 <a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/%EA%B8%B0%ED%83%80-%EC%88%98%EC%83%81" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
 <div class="aspect-video bg-slate-100 flex items-center justify-center relative overflow-hidden">
-<img src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/each.jpg" alt="개인 표창<" class="w-full h-full object-cover"/>
+<img src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/each.png" alt="개인 표창<" class="w-full h-full object-cover"/>
 <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] px-2 py-1 rounded">수상 현장 사진</div>
 </div>
 <div class="p-6 flex flex-col gap-3">
@@ -347,28 +353,22 @@
 </div>
 </section>
 </div>
+</section>
+
+    <!-- Footer (out_award 기준) -->
+    <footer class="page-section bg-[#f9f9ff] py-10 keep-all">
+      <div class="max-w-[1440px] mx-auto px-gutter">
+        <div class="text-sm text-[#111c2d]">
+          <p class="font-extrabold mb-3">아현산업정보학교 게임제작과</p>
+          <div class="space-y-1 text-[#111c2d]/80 leading-relaxed">
+            <p>📍 서울특별시 마포구 아현동 마포대로 249 아현산업정보학교 게임제작실습실</p>
+            <p>☎ 02-390-5864&nbsp;&nbsp; | &nbsp;&nbsp;✉ seomin@sen.go.kr</p>
+          </div>
+          <p class="mt-5 text-xs text-[#111c2d]/70">
+            © 2024 Ahyeon Game Lab. All rights reserved. High-Tech Education for Future Creators.
+          </p>
+        </div>
+      </div>
+    </footer>
 </main>
-<!-- Footer Navigation -->
-<nav class="flex items-center justify-around border border-t-0 border-solid border-outline-variant bg-surface px-10 py-4 rounded-b-2xl shadow-sm">
-<div class="flex flex-col items-center gap-1 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined">home</span>
-<p class="text-[10px] font-medium">홈</p>
-</div>
-<div class="flex flex-col items-center gap-1 cursor-pointer text-primary">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trophy</span>
-<p class="text-[10px] font-bold">수상 실적</p>
-</div>
-<div class="flex flex-col items-center gap-1 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined">collections</span>
-<p class="text-[10px] font-medium">갤러리</p>
-</div>
-<div class="flex flex-col items-center gap-1 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined">contact_support</span>
-<p class="text-[10px] font-medium">문의</p>
-</div>
-</nav>
-</div>
-</div>
-</div>
-</div>
 </body></html>
