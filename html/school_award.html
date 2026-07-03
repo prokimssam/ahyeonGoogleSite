@@ -111,33 +111,54 @@
     </style>
 </head>
 <body class="bg-surface selection:bg-primary/20 text-on-surface">
-<main class="pt-lg pb-xl">
-<!-- Section 1: Compact Header -->
-<section class="max-w-[1440px] mx-auto px-gutter mb-lg">
-<div class="flex flex-col gap-xs border-l-4 border-primary pl-md">
-<h1 class="font-headline-xl text-headline-xl text-on-surface">교내 경진대회</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">매년 열리는 3개의 교내 경진대회</p>
+<main class="pb-xl">
+<!-- Section 1: Hero Header -->
+<section class="relative overflow-hidden bg-[linear-gradient(135deg,#4648D4_0%,#6063EE_60%,#00687A_130%)] py-16 md:py-20">
+<div class="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-[#4CD7F6]/20 pointer-events-none"></div>
+<div class="absolute -left-16 -bottom-28 w-72 h-72 rounded-full bg-white/[0.08] pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-gutter relative z-10 text-center">
+<h1 class="font-headline-xl text-headline-xl text-white mb-3">교내 경진대회</h1>
+<p class="font-body-lg text-body-lg text-white/90">매년 열리는 3개의 교내 경진대회</p>
 </div>
 </section>
-<!-- Section 2: Sticky Jump Nav -->
-<nav class="sticky top-0 z-40 bg-surface-container-lowest border-y border-outline-variant/30 py-sm">
-<div class="max-w-[1440px] mx-auto px-gutter flex gap-md overflow-x-auto no-scrollbar whitespace-nowrap">
-<a class="font-label-caps text-label-caps text-primary hover:text-primary-container transition-all" href="#semester1">1학기 교내 경진대회</a>
-<span class="text-outline-variant">|</span>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#ahyeon-fest">아현한마당(2학기)</a>
-<span class="text-outline-variant">|</span>
-<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-all" href="#portfolio">포트폴리오 경진대회</a>
+<!-- Section 2: 교내 경진대회 소개 -->
+<section class="bg-[#F9F9FF] py-xl">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest border border-[#b3b0c7] rounded-xl p-6 flex items-center gap-4">
+<span class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-2xl shrink-0">🎮</span>
+<div class="min-w-0">
+<div class="text-lg font-bold text-on-surface leading-tight">1학기 교내 경진대회</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">기획 · 게임 프로그래밍 경진</div>
 </div>
-</nav>
+</div>
+<div class="bg-surface-container-lowest border border-[#b3b0c7] rounded-xl p-6 flex items-center gap-4">
+<span class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center text-2xl shrink-0">🎪</span>
+<div class="min-w-0">
+<div class="text-lg font-bold text-on-surface leading-tight">아현한마당 (2학기)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">종합 전시 경진대회</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-[#b3b0c7] rounded-xl p-6 flex items-center gap-4">
+<span class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center text-2xl shrink-0">📁</span>
+<div class="min-w-0">
+<div class="text-lg font-bold text-on-surface leading-tight">포트폴리오 경진대회</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">취업 역량 아카이브</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- Section 3: 1학기 교내 경진대회 -->
-<section class="max-w-[1440px] mx-auto px-gutter py-xl" id="semester1">
-<div class="mb-md flex items-center justify-between">
+<section class="bg-[#F0F3FF] py-xl" id="semester1">
+<div class="max-w-[1440px] mx-auto px-gutter">
+<div class="mb-md border-l-4 border-primary pl-md">
 <h2 class="font-headline-lg text-headline-lg text-on-surface">1학기 교내 경진대회</h2>
-<div class="w-12 h-1 bg-secondary-container rounded-full"></div>
+<p class="font-body-md text-body-md text-on-surface-variant">아직 서툴지만, 우리 손으로 직접 만들어 본 첫 게임들입니다.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
 <!-- 2025 -->
-<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/ahyeon1?authuser=0" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
+<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/ahyeon1?authuser=0" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2025-1.png">
 </div>
@@ -148,7 +169,7 @@
 </div>
 </a>
 <!-- 2024 -->
-<a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/ahyeon1?authuser=0" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/ahyeon1?authuser=0" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2024-1.png">
 </div>
@@ -159,7 +180,7 @@
 </div>
 </a>
 <!-- 2023 -->
-<a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/1%ED%95%99%EA%B8%B0%EA%B5%90%EB%82%B4%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/1%ED%95%99%EA%B8%B0%EA%B5%90%EB%82%B4%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2023-1.png">
 </div>
@@ -170,7 +191,7 @@
 </div>
 </a>
 <!-- 2022 -->
-<a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/ahyeoncontest" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/ahyeoncontest" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2022-1.png">
 </div>
@@ -181,7 +202,7 @@
 </div>
 </a>
 <!-- 2021 -->
-<a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/ahyeoncontest" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/ahyeoncontest" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group flex flex-col">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2021-1.png">
 </div>
@@ -192,17 +213,18 @@
 </div>
 </a>
 </div>
+</div>
 </section>
 <!-- Section 4: 아현한마당 (2학기 경진대회) -->
-<section class="bg-surface-container-low py-xl" id="ahyeon-fest">
+<section class="bg-[#F9F9FF] py-xl" id="ahyeon-fest">
 <div class="max-w-[1440px] mx-auto px-gutter">
-<div class="mb-md border-l-4 border-secondary pl-md">
+<div class="mb-md border-l-4 border-primary pl-md">
 <h2 class="font-headline-lg text-headline-lg text-on-surface">아현한마당 (2학기 경진대회)</h2>
 <p class="font-body-md text-body-md text-on-surface-variant">한 해의 결실을 맺는 종합 전시 및 경쟁 부문입니다.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
 <!-- Cards for 2025 - 2021 -->
-<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/ahyeon2?authuser=0" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
+<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/ahyeon2?authuser=0" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
 <div class="aspect-video bg-surface-container relative">
 <img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2025-2.png">
 </div>
@@ -211,7 +233,7 @@
 <h4 class="font-headline-md text-headline-md text-on-surface leading-tight">제12회 아현한마당 게임제작 경진대회</h4>
 </div>
 </a>
-<a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/ahyeon2?authuser=0" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/ahyeon2?authuser=0" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2024-2.png">
 </div>
@@ -220,7 +242,7 @@
 <h4 class="font-headline-md text-headline-md text-on-surface leading-tight">제11회 아현한마당 게임제작 경진대회</h4>
 </div>
 </a>
-<a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/2%ED%95%99%EA%B8%B0%EA%B5%90%EB%82%B4%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/2%ED%95%99%EA%B8%B0%EA%B5%90%EB%82%B4%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2023-2.png">
 </div>
@@ -229,7 +251,7 @@
 <h4 class="font-headline-md text-headline-md text-on-surface leading-tight">제10회 아현한마당 게임제작 경진대회</h4>
 </div>
 </a>
-<a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/%EC%95%84%ED%98%84%ED%95%9C%EB%A7%88%EB%8B%B9-2%ED%95%99%EA%B8%B0%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
+<a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/%EC%95%84%ED%98%84%ED%95%9C%EB%A7%88%EB%8B%B9-2%ED%95%99%EA%B8%B0%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2022-2.png">
 </div>
@@ -238,7 +260,7 @@
 <h4 class="font-headline-md text-headline-md text-on-surface leading-tight">제9회 아현한마당 게임제작 경진대회</h4>
 </div>
 </a>
-<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeon-gamemaker/#h.bf2era88126j" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-100 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
+<a href="https://sites.google.com/sonline20.sen.go.kr/ahyeon-gamemaker/#h.bf2era88126j" target="_blank" rel="noopener noreferrer" class="bg-white border border-neutral-200 rounded-xl overflow-hidden hover:shadow-xl transition-all group block">
 <div class="aspect-video bg-surface-container">
 <img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/2021-2.png">
 </div>
@@ -251,7 +273,8 @@
 </div>
 </section>
 <!-- Section 5: 포트폴리오 경진대회 -->
-<section class="max-w-[1440px] mx-auto px-gutter py-xl" id="portfolio">
+<section class="bg-[#F0F3FF] py-xl" id="portfolio">
+<div class="max-w-[1440px] mx-auto px-gutter">
 <div class="mb-lg text-center">
 <span class="font-label-caps text-label-caps text-secondary tracking-widest block mb-xs">AWARDS ARCHIVE</span>
 <h2 class="font-headline-xl text-headline-xl text-on-surface">포트폴리오 경진대회</h2>
@@ -267,44 +290,47 @@
 <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-md">
 <!-- Card 1 -->
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">
-<div class="aspect-[4/5] bg-surface-container">
-<img class="w-full h-full object-cover" src="images/pf-2025-1.jpg" alt="김아현 포트폴리오 수상 사진">
+<div class="p-md flex items-center gap-md">
+<div class="w-2/5 shrink-0 aspect-[4/5] bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/25-yun.png" alt="이윤세 포트폴리오 수상 사진">
 </div>
-<div class="p-md flex flex-col gap-sm">
+<div class="flex flex-col gap-xs min-w-0">
 <div class="flex items-center gap-xs">
 <span class="material-symbols-outlined text-yellow-500" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
 <span class="bg-yellow-100 text-yellow-800 font-label-caps text-[10px] px-xs py-0.5 rounded">최우수상</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface">김아현</h4>
-<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Unity 기반의 모바일 액션 RPG 최적화 포트폴리오</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">이윤세</h4>
+</div>
 </div>
 </div>
 <!-- Card 2 -->
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">
-<div class="aspect-[4/5] bg-surface-container">
-<img class="w-full h-full object-cover" src="images/pf-2025-2.jpg" alt="이게임 포트폴리오 수상 사진">
+<div class="p-md flex items-center gap-md">
+<div class="w-2/5 shrink-0 aspect-[4/5] bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/25-park.png" alt="박주현 포트폴리오 수상 사진">
 </div>
-<div class="p-md flex flex-col gap-sm">
+<div class="flex flex-col gap-xs min-w-0">
 <div class="flex items-center gap-xs">
 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
 <span class="bg-primary-container/20 text-primary font-label-caps text-[10px] px-xs py-0.5 rounded">장려상</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface">이게임</h4>
-<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">언리얼 엔진 5를 활용한 실사 지향적 레벨 디자인</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">박주현</h4>
+</div>
 </div>
 </div>
 <!-- Card 3 -->
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">
-<div class="aspect-[4/5] bg-surface-container">
-<img class="w-full h-full object-cover" src="images/pf-2025-3.jpg" alt="박프로 포트폴리오 수상 사진">
+<div class="p-md flex items-center gap-md">
+<div class="w-2/5 shrink-0 aspect-[4/5] bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/25-jung.png" alt="정밝은빛 포트폴리오 수상 사진">
 </div>
-<div class="p-md flex flex-col gap-sm">
+<div class="flex flex-col gap-xs min-w-0">
 <div class="flex items-center gap-xs">
 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
 <span class="bg-primary-container/20 text-primary font-label-caps text-[10px] px-xs py-0.5 rounded">장려상</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface">박프로</h4>
-<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">대규모 트래픽 처리를 위한 게임 서버 아키텍처</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">정밝은빛</h4>
+</div>
 </div>
 </div>
 </div>
@@ -317,31 +343,33 @@
 <p class="font-label-md text-label-md text-on-surface-variant">포트폴리오 완성도 부문</p>
 <a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary mt-xs group/link" href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/portfolio?authuser=0" target="_blank" rel="noopener noreferrer">대회 페이지 <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
 </div>
-<div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-md">
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">
-<div class="aspect-[4/5] bg-surface-container">
-<img class="w-full h-full object-cover" src="images/pf-2024-1.jpg" alt="최창의 포트폴리오 수상 사진">
+<div class="p-md flex items-center gap-md">
+<div class="w-2/5 shrink-0 aspect-[4/5] bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/24-jun.png" alt="전민규 포트폴리오 수상 사진">
 </div>
-<div class="p-md flex flex-col gap-sm">
+<div class="flex flex-col gap-xs min-w-0">
 <div class="flex items-center gap-xs">
 <span class="material-symbols-outlined text-yellow-500" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
 <span class="bg-yellow-100 text-yellow-800 font-label-caps text-[10px] px-xs py-0.5 rounded">최우수상</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface">최창의</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">VR 환경에서의 물리 상호작용 시스템 고도화</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">전민규</h4>
+</div>
 </div>
 </div>
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">
-<div class="aspect-[4/5] bg-surface-container">
-<img class="w-full h-full object-cover" src="images/pf-2024-2.jpg" alt="정디렉 포트폴리오 수상 사진">
+<div class="p-md flex items-center gap-md">
+<div class="w-2/5 shrink-0 aspect-[4/5] bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/24-hong.png" alt="홍경서 포트폴리오 수상 사진">
 </div>
-<div class="p-md flex flex-col gap-sm">
+<div class="flex flex-col gap-xs min-w-0">
 <div class="flex items-center gap-xs">
 <span class="material-symbols-outlined text-slate-400" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
 <span class="bg-slate-100 text-slate-700 font-label-caps text-[10px] px-xs py-0.5 rounded">우수상</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface">정디렉</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">내러티브 중심의 인디 게임 기획 및 연출</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">홍경서</h4>
+</div>
 </div>
 </div>
 </div>
@@ -354,31 +382,34 @@
 <p class="font-label-md text-label-md text-on-surface-variant">기초 역량 및 성장 부문</p>
 <a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary mt-xs group/link" href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer">대회 페이지 <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
 </div>
-<div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-md">
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">
-<div class="aspect-[4/5] bg-surface-container">
-<img class="w-full h-full object-cover" src="images/pf-2023-1.jpg" alt="한기획 포트폴리오 수상 사진">
+<div class="p-md flex items-center gap-md">
+<div class="w-2/5 shrink-0 aspect-[4/5] bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/23-baek.png" alt="백필립 포트폴리오 수상 사진">
 </div>
-<div class="p-md flex flex-col gap-sm">
+<div class="flex flex-col gap-xs min-w-0">
 <div class="flex items-center gap-xs">
 <span class="material-symbols-outlined text-yellow-500" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
 <span class="bg-yellow-100 text-yellow-800 font-label-caps text-[10px] px-xs py-0.5 rounded">최우수상</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface">한기획</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">데이터 기반 밸런싱 시뮬레이터 제작 및 검증</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">백필립</h4>
+</div>
 </div>
 </div>
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">
-<div class="aspect-[4/5] bg-surface-container">
-<img class="w-full h-full object-cover" src="images/pf-2023-2.jpg" alt="강엔진 포트폴리오 수상 사진">
+<div class="p-md flex items-center gap-md">
+<div class="w-2/5 shrink-0 aspect-[4/5] bg-surface-container rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" src="https://raw.githubusercontent.com/prokimssam/ahyeonGoogleSite/refs/heads/main/images/23-yoo.png" alt="유동연 포트폴리오 수상 사진">
 </div>
-<div class="p-md flex flex-col gap-sm">
+<div class="flex flex-col gap-xs min-w-0">
 <div class="flex items-center gap-xs">
 <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
 <span class="bg-primary-container/20 text-primary font-label-caps text-[10px] px-xs py-0.5 rounded">장려상</span>
 </div>
-<h4 class="font-headline-md text-headline-md text-on-surface">강엔진</h4>
-<p class="font-body-md text-body-md text-on-surface-variant">모바일 하드웨어 한계를 극복한 쉐이더 최적화 기법</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">유동연</h4>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -387,7 +418,7 @@
 </section>
 </main>
 <!-- Footer (out_award 기준) -->
-    <footer class="page-section bg-[#f9f9ff] py-10 keep-all">
+    <footer class="page-section bg-[#eef0f7] border-t border-[#dcdaeb] py-10 keep-all">
       <div class="max-w-[1440px] mx-auto px-gutter">
         <div class="text-sm text-[#111c2d]">
           <p class="font-extrabold mb-3">아현산업정보학교 게임제작과</p>
@@ -401,32 +432,6 @@
         </div>
       </div>
     </footer>
-<script>
-        // Micro-interactions for sticky nav
-        const navLinks = document.querySelectorAll('#ahyeon-fest nav a, nav.sticky a');
-        
-        window.addEventListener('scroll', () => {
-            let current = "";
-            const sections = document.querySelectorAll('section[id]');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('nav.sticky a').forEach(a => {
-                a.classList.remove('text-primary');
-                a.classList.add('text-on-surface-variant');
-                if (a.getAttribute('href') === `#${current}`) {
-                    a.classList.add('text-primary');
-                    a.classList.remove('text-on-surface-variant');
-                }
-            });
-        });
-    </script>
 
 
 </body></html>

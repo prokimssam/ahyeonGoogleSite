@@ -138,20 +138,21 @@
     </style>
 </head>
 <body class="bg-surface selection:bg-primary/20 text-on-surface">
-<main class="pt-lg pb-xl">
-<!-- Section 1: Compact Header (school_award 기준) -->
-<section class="max-w-[1440px] mx-auto px-gutter mb-lg">
-<div class="flex flex-col gap-xs border-l-4 border-[#4648d4] pl-md">
-<h1 class="font-headline-xl text-headline-xl text-on-surface">교외 대회 수상 현황</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">게임제작전공 학생들이 전국 단위 공모전에서 실력을 입증했습니다.</p>
+<main class="pb-xl">
+<!-- Section 1: Hero Header -->
+<section class="relative overflow-hidden bg-[linear-gradient(135deg,#4648D4_0%,#6063EE_60%,#00687A_130%)] py-16 md:py-20">
+<div class="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-[#4CD7F6]/20 pointer-events-none"></div>
+<div class="absolute -left-16 -bottom-28 w-72 h-72 rounded-full bg-white/[0.08] pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-gutter relative z-10 text-center">
+<h1 class="font-headline-xl text-headline-xl text-white mb-3">교외 대회 수상 현황</h1>
+<p class="font-body-lg text-body-lg text-white/90">게임제작과 학생들이 전국 단위 공모전에서 실력을 입증했습니다.</p>
 </div>
 </section>
 <!-- Awards List Grouped by Year -->
-<section class="max-w-[1440px] mx-auto px-gutter">
-<div class="flex flex-col gap-16">
-<!-- 2025 -->
-<section class="flex flex-col gap-8">
-<div class="year-marker">
+<!-- 2025 (white) -->
+<section class="bg-[#F9F9FF] py-xl">
+<div class="max-w-[1440px] mx-auto px-gutter flex flex-col gap-8">
+<div class="border-l-4 border-primary pl-md">
 <h3 class="text-3xl font-black text-on-surface">2025</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -207,10 +208,12 @@
 </div>
 </a>
 </div>
+</div>
 </section>
-<!-- 2024 -->
-<section class="flex flex-col gap-8">
-<div class="year-marker">
+<!-- 2024 (blue) -->
+<section class="bg-[#F0F3FF] py-xl">
+<div class="max-w-[1440px] mx-auto px-gutter flex flex-col gap-8">
+<div class="border-l-4 border-primary pl-md">
 <h3 class="text-3xl font-black text-on-surface">2024</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -268,10 +271,12 @@
 </div>
 </a>
 </div>
+</div>
 </section>
-<!-- 2023 -->
-<section class="flex flex-col gap-8">
-<div class="year-marker">
+<!-- 2023 (white) -->
+<section class="bg-[#F9F9FF] py-xl">
+<div class="max-w-[1440px] mx-auto px-gutter flex flex-col gap-8">
+<div class="border-l-4 border-primary pl-md">
 <h3 class="text-3xl font-black text-on-surface">2023</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -323,10 +328,12 @@
 </div>
 </a>
 </div>
+</div>
 </section>
-<!-- 2022-2021 (Older years with spread layout) -->
-<section class="flex flex-col gap-8">
-<div class="year-marker">
+<!-- 2022-2021 (blue) -->
+<section class="bg-[#F0F3FF] py-xl">
+<div class="max-w-[1440px] mx-auto px-gutter flex flex-col gap-8">
+<div class="border-l-4 border-primary pl-md">
 <h3 class="text-3xl font-black text-on-surface">2022 &amp; 2021</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -351,12 +358,11 @@
 <span class="badge-indigo px-2 py-0.5 rounded-full text-[10px] font-bold">장려상</span>
 </a>
 </div>
-</section>
 </div>
 </section>
 
     <!-- Footer (out_award 기준) -->
-    <footer class="page-section bg-[#f9f9ff] py-10 keep-all">
+    <footer class="page-section bg-[#eef0f7] border-t border-[#dcdaeb] py-10 keep-all">
       <div class="max-w-[1440px] mx-auto px-gutter">
         <div class="text-sm text-[#111c2d]">
           <p class="font-extrabold mb-3">아현산업정보학교 게임제작과</p>
