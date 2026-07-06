@@ -108,6 +108,20 @@
         .glass-header { backdrop-filter: blur(12px); border-bottom: 1px solid rgba(118, 117, 134, 0.1); }
         .nav-item-active { border-bottom: 2px solid #4648d4; color: #4648d4; }
         html { scroll-behavior: smooth; }
+        /* clickable indicator — bottom-right corner of linked 경진대회 cards */
+        main a.group.rounded-xl { position: relative; }
+        main a.group.rounded-xl > .p-md { padding-bottom: 40px; }
+        main a.group.rounded-xl::after {
+            content: "자세히 보기 \2197";
+            position: absolute;
+            right: 18px;
+            bottom: 14px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #4648d4;
+            transition: color 0.2s ease;
+        }
+        main a.group.rounded-xl:hover::after { color: #2f2ebe; }
     </style>
 </head>
 <body class="bg-surface selection:bg-primary/20 text-on-surface">
@@ -285,7 +299,7 @@
 <div class="lg:col-span-1 border-l-2 border-primary pl-md py-xs">
 <h3 class="font-headline-lg text-headline-lg text-on-surface">2025</h3>
 <p class="font-label-md text-label-md text-on-surface-variant">취업 역량 강화 부문</p>
-<a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary mt-xs group/link" href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/portfolio?authuser=0" target="_blank" rel="noopener noreferrer">대회 페이지 <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+<a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary mt-xs group/link" href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/portfolio?authuser=0" target="_blank" rel="noopener noreferrer">자세히 보기 <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_outward</span></a>
 </div>
 <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-md">
 <!-- Card 1 -->
@@ -341,7 +355,7 @@
 <div class="lg:col-span-1 border-l-2 border-primary pl-md py-xs">
 <h3 class="font-headline-lg text-headline-lg text-on-surface">2024</h3>
 <p class="font-label-md text-label-md text-on-surface-variant">포트폴리오 완성도 부문</p>
-<a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary mt-xs group/link" href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/portfolio?authuser=0" target="_blank" rel="noopener noreferrer">대회 페이지 <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+<a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary mt-xs group/link" href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/portfolio?authuser=0" target="_blank" rel="noopener noreferrer">자세히 보기 <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_outward</span></a>
 </div>
 <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-md">
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">
@@ -380,7 +394,7 @@
 <div class="lg:col-span-1 border-l-2 border-primary pl-md py-xs">
 <h3 class="font-headline-lg text-headline-lg text-on-surface">2023</h3>
 <p class="font-label-md text-label-md text-on-surface-variant">기초 역량 및 성장 부문</p>
-<a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary mt-xs group/link" href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer">대회 페이지 <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span></a>
+<a class="inline-flex items-center gap-xs font-label-md text-label-md text-primary mt-xs group/link" href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C" target="_blank" rel="noopener noreferrer">자세히 보기 <span class="material-symbols-outlined text-[18px] group-hover/link:translate-x-1 transition-transform">arrow_outward</span></a>
 </div>
 <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-md">
 <div class="bg-white border border-neutral-200 rounded-xl overflow-hidden flex flex-col relative hover:border-primary transition-all">

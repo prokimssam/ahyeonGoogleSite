@@ -114,6 +114,12 @@
         .badge-indigo { @apply bg-[#6366F1] text-white border border-[#4F46E5]; }
         .badge-cyan { @apply bg-[#06B6D4] text-white border border-[#0891B2]; }
         .badge-gray { @apply bg-[#F1F5F9] text-[#64748B] border border-[#E2E8F0]; }
+        .badge-gold::before   { content: "🏆 "; }
+        .badge-silver::before { content: "🥈 "; }
+        .badge-bronze::before { content: "🥉 "; }
+        .badge-indigo::before { content: "🏅 "; }
+        .badge-cyan::before   { content: "🏅 "; }
+        .badge-gray::before   { content: "🎫 "; }
         
         .award-card {
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
@@ -135,6 +141,23 @@
             background: #6366F1;
             border-radius: 2px;
         }
+        /* clickable indicator — bottom-right corner, links only */
+        a.award-card { position: relative; }
+        a.award-card > .p-6 { padding-bottom: 34px; }
+        a.award-card.block { padding-bottom: 34px; }
+        a.award-card::after {
+            content: "자세히 보기 \2197";
+            position: absolute;
+            right: 18px;
+            bottom: 14px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #6366F1;
+            transition: color 0.2s ease;
+        }
+        a.award-card:hover::after {
+            color: #4338CA;
+        }
     </style>
 </head>
 <body class="bg-surface selection:bg-primary/20 text-on-surface">
@@ -153,7 +176,7 @@
 <section class="bg-[#F9F9FF] py-xl">
 <div class="max-w-[1440px] mx-auto px-gutter flex flex-col gap-8">
 <div class="border-l-4 border-primary pl-md">
-<h3 class="text-3xl font-black text-on-surface">2025</h3>
+<h3 class="text-3xl font-black text-on-surface">2025년 수상 현황</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame/history/2025/contest25/singu?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
@@ -214,7 +237,7 @@
 <section class="bg-[#F0F3FF] py-xl">
 <div class="max-w-[1440px] mx-auto px-gutter flex flex-col gap-8">
 <div class="border-l-4 border-primary pl-md">
-<h3 class="text-3xl font-black text-on-surface">2024</h3>
+<h3 class="text-3xl font-black text-on-surface">2024년 수상 현황</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <a href="https://sites.google.com/sonline20.sen.go.kr/2024gamemaker/contest/netmarble?authuser=0" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
@@ -277,7 +300,7 @@
 <section class="bg-[#F9F9FF] py-xl">
 <div class="max-w-[1440px] mx-auto px-gutter flex flex-col gap-8">
 <div class="border-l-4 border-primary pl-md">
-<h3 class="text-3xl font-black text-on-surface">2023</h3>
+<h3 class="text-3xl font-black text-on-surface">2023년 수상 현황</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <a href="https://sites.google.com/sonline20.sen.go.kr/2023gamemaker/competition/be-the-ceos" target="_blank" rel="noopener noreferrer" class="award-card flex flex-col rounded-2xl bg-white border border-outline-variant overflow-hidden">
@@ -334,7 +357,7 @@
 <section class="bg-[#F0F3FF] py-xl">
 <div class="max-w-[1440px] mx-auto px-gutter flex flex-col gap-8">
 <div class="border-l-4 border-primary pl-md">
-<h3 class="text-3xl font-black text-on-surface">2022 &amp; 2021</h3>
+<h3 class="text-3xl font-black text-on-surface">2022 · 2021년 수상 현황</h3>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 <a href="https://sites.google.com/sonline20.sen.go.kr/2022gamemaker/gamecontest/%EC%9B%85%EC%A7%84%EC%94%BD%ED%81%AC%EB%B9%85%EA%B2%8C%EC%9E%84%EA%B0%9C%EB%B0%9C%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener noreferrer" class="award-card block p-6 rounded-2xl bg-white border border-outline-variant">
