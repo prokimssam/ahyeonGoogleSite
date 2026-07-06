@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026학년도 게임제작 프로그래밍 · 한 해의 기록</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#4648D4;
+    --primary-container:#6063EE;
+    --secondary:#00687A;
+    --cyan:#4CD7F6;
+    --gold:#E8A700;
+    --surface:#F9F9FF;
+    --card:#FFFFFF;
+    --section-low:#F0F3FF;
+    --ink:#111C2D;
+    --gray:#464554;
+    --line:#C7C4D7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Hanken Grotesk','Noto Sans KR',sans-serif;background:var(--surface);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;word-break:keep-all;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  a{text-decoration:none;color:inherit;}
+  section{padding:64px 0;}
+  .center{text-align:center;margin-bottom:44px;}
+  .center .tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);background:rgba(70,72,212,.08);padding:6px 14px;border-radius:999px;margin-bottom:14px;}
+  .center h2{font-size:30px;font-weight:800;margin-bottom:12px;letter-spacing:-.01em;}
+  .center p{font-size:16px;color:var(--gray);max-width:700px;margin:0 auto;}
+
+  /* ---------- Hero ---------- */
+  .hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-container) 55%,var(--secondary) 130%);color:#fff;padding:80px 0 72px;position:relative;overflow:hidden;}
+  .hero .blob{position:absolute;right:-90px;top:-90px;width:380px;height:380px;border-radius:50%;background:rgba(76,215,246,.22);}
+  .hero .blob2{position:absolute;left:-70px;bottom:-110px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.08);}
+  .hero .inner{position:relative;z-index:2;max-width:840px;}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:7px 16px;border-radius:999px;margin-bottom:22px;}
+  .hero h1{font-size:46px;font-weight:800;line-height:1.16;letter-spacing:-.02em;margin-bottom:20px;}
+  .hero h1 .hl{color:var(--cyan);}
+  .hero p{font-size:17px;color:rgba(255,255,255,.92);max-width:680px;}
+  .hero .meta{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;}
+  .hero .meta div{display:flex;flex-direction:column;}
+  .hero .meta b{font-size:28px;font-weight:800;}
+  .hero .meta span{font-size:13px;color:rgba(255,255,255,.78);font-weight:600;}
+  @media(max-width:640px){.hero h1{font-size:32px;}}
+
+  /* ---------- Story: 올해 수업 이야기 ---------- */
+  .story-lead{max-width:820px;margin:0 auto 40px;text-align:center;}
+  .story-lead p{font-size:17px;color:var(--gray);line-height:1.75;}
+  .story-lead b{color:var(--ink);font-weight:700;}
+
+  .vibe{background:linear-gradient(135deg,#111C2D,#242653);color:#fff;border-radius:22px;padding:40px 38px;position:relative;overflow:hidden;}
+  .vibe::after{content:"";position:absolute;right:-60px;bottom:-60px;width:220px;height:220px;border-radius:50%;background:rgba(76,215,246,.14);}
+  .vibe .k{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;}
+  .vibe h3{font-size:25px;font-weight:800;margin-bottom:14px;letter-spacing:-.01em;position:relative;z-index:2;}
+  .vibe p{font-size:15.5px;color:rgba(255,255,255,.85);line-height:1.7;max-width:640px;position:relative;z-index:2;}
+  .vibe .tools{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;position:relative;z-index:2;}
+  .vibe .tool{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:10px 16px;border-radius:12px;}
+  .vibe .tool .dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);}
+
+  .proj-intro{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px;}
+  .pi{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:18px;padding:28px 26px;position:relative;overflow:hidden;transition:.25s;}
+  .pi:hover{transform:translateY(-4px);box-shadow:0 14px 30px -12px rgba(70,72,212,.2);}
+  .pi .n{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--primary);}
+  .pi .em{font-size:34px;margin:10px 0 12px;}
+  .pi h4{font-size:19px;font-weight:800;margin-bottom:8px;}
+  .pi p{font-size:14.5px;color:var(--gray);line-height:1.65;}
+  @media(max-width:720px){.proj-intro{grid-template-columns:1fr;}}
+
+  /* ---------- Growth pipeline ---------- */
+  .growth{background:var(--section-low);}
+  .pipe{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;position:relative;}
+  .step{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:14px;padding:22px 12px;text-align:center;transition:.25s;}
+  .step:hover{transform:translateY(-4px);box-shadow:0 10px 22px -8px rgba(70,72,212,.18);}
+  .step .num{font-size:11px;font-weight:800;color:var(--primary);letter-spacing:.08em;}
+  .step .em{font-size:28px;margin:8px 0 10px;}
+  .step h4{font-size:13px;font-weight:700;line-height:1.35;}
+  @media(max-width:900px){.pipe{grid-template-columns:repeat(4,1fr);}}
+  @media(max-width:560px){.pipe{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Project list ---------- */
+  .plist{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .pcard{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;position:relative;}
+  .pcard.live:hover{transform:translateY(-5px);box-shadow:0 18px 36px -14px rgba(70,72,212,.24);border-color:var(--primary-container);}
+  .pcard .head{padding:26px 26px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .pcard .semester{font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--secondary);background:rgba(0,104,122,.08);padding:6px 12px;border-radius:999px;}
+  .statuschip{font-size:12px;font-weight:800;padding:6px 12px;border-radius:999px;}
+  .statuschip.done{background:rgba(0,104,122,.1);color:var(--secondary);}
+  .statuschip.soon{background:#EEF0FB;color:var(--gray);}
+  .pcard .body{padding:16px 26px 0;flex:1;}
+  .pcard .em{font-size:38px;margin-bottom:10px;}
+  .pcard h3{font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:8px;}
+  .pcard p{font-size:14.5px;color:var(--gray);line-height:1.65;}
+  .pcard .foot{padding:20px 26px 24px;}
+  .gobtn{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:800;color:#fff;background:var(--primary);padding:12px 22px;border-radius:12px;transition:.2s;}
+  .gobtn:hover{background:var(--primary-container);gap:12px;}
+  .soonbtn{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;color:var(--gray);background:#EEF0FB;padding:12px 22px;border-radius:12px;cursor:default;}
+  .pcard.soon{border-style:dashed;background:#FCFCFF;}
+  @media(max-width:720px){.plist{grid-template-columns:1fr;}}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#fff;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding:44px 24px;max-width:1160px;margin:0 auto;}
+  .foot-brand{font-size:18px;font-weight:800;margin-bottom:6px;}
+  .foot-brand+p{font-size:13px;color:rgba(255,255,255,.6);max-width:430px;line-height:1.6;}
+  .foot-links{display:flex;flex-wrap:wrap;gap:14px;}
+  .foot-links a{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.2);padding:9px 16px;border-radius:999px;transition:.2s;}
+  .foot-links a:hover{background:#fff;color:var(--ink);}
+  .copy{text-align:center;font-size:12px;color:rgba(255,255,255,.45);padding:0 24px 28px;}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<section class="hero" style="padding-top:80px;">
+  <div class="blob"></div><div class="blob2"></div>
+  <div class="wrap inner">
+    <span class="eyebrow">2026학년도 · 게임제작 프로그래밍</span>
+    <h1>배움에서 창작으로,<br><span class="hl">AI와 함께</span> 게임을 만든 한 해</h1>
+    <p>올해 학생들은 Codex·Claude로 <b>바이브코딩</b>을 배우며, 스스로 게임을 기획하고 만들어 세상에 배포했습니다.
+       한 학기 동안 학생들이 어떻게 배우고, 성장하고, 무엇을 완성했는지 이 페이지에 담았습니다.</p>
+    <div class="meta">
+      <div><b>13명</b><span>참여 학생</span></div>
+      <div><b>2개</b><span>1학기 프로젝트</span></div>
+      <div><b>11개</b><span>완성·배포한 게임</span></div>
+      <div><b>AI</b><span>바이브코딩 도입</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 올해 수업 이야기 ===== -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="tag">The Story</span>
+      <h2>올해 수업은 이렇게 흘러갔습니다</h2>
+    </div>
+    <div class="story-lead">
+      <p>2026학년도 게임제작 프로그래밍은 <b>두 개의 프로젝트</b>로 진행되었습니다.
+         먼저 자신을 기록하는 <b>노션 포트폴리오</b>를 만들고, 이어서 <b>Unity2D로 각자의 게임</b>을 완성했습니다.
+         그리고 올해는 무엇보다 — <b>AI와 함께 코딩하는 법</b>을 처음으로 배운 해였습니다.</p>
+    </div>
+
+    <div class="vibe">
+      <div class="k">올해의 새로운 도전</div>
+      <h3>바이브코딩 — AI와 함께 만드는 게임</h3>
+      <p>막막했던 코드 앞에서 학생들은 이제 AI에게 묻고, 함께 고치고, 스스로 판단합니다.
+         Codex와 Claude를 도구로 삼아 “무엇을 만들고 싶은가”에 집중하는 법을 익혔습니다.
+         AI가 코드를 대신 써주는 것이 아니라, <b style="color:#fff;">학생이 기획하고 AI와 협업해 완성해내는</b> 경험 — 그것이 올해의 핵심이었습니다.</p>
+      <div class="tools">
+        <span class="tool"><span class="dot"></span>Codex</span>
+        <span class="tool"><span class="dot"></span>Claude</span>
+        <span class="tool"><span class="dot"></span>Unity 2D</span>
+      </div>
+    </div>
+
+    <div class="proj-intro">
+      <div class="pi">
+        <div class="n">1학기 · 1차 프로젝트</div>
+        <div class="em">📝</div>
+        <h4>노션 포트폴리오</h4>
+        <p>자신의 학습과 작업을 스스로 기록하고 정리하는 힘. 앞으로의 모든 프로젝트가 쌓이는 나만의 아카이브를 만들었습니다.</p>
+      </div>
+      <div class="pi">
+        <div class="n">1학기 · 2차 프로젝트</div>
+        <div class="em">🎮</div>
+        <h4>Unity2D 창작 게임</h4>
+        <p>‘김치런’으로 Unity를 익힌 뒤, 각자의 아이디어로 게임을 기획·제작하고 itch.io에 직접 배포했습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 성장 파이프라인 ===== -->
+<section class="growth">
+  <div class="wrap">
+    <div class="center">
+      <span class="tag">Growth</span>
+      <h2>배움에서 배포까지, 학생들의 성장 과정</h2>
+      <p>한 명도 빠짐없이 이 과정을 스스로 거쳤습니다. 결과물뿐 아니라 만들어가는 과정 전체가 학생들의 성장입니다.</p>
+    </div>
+    <div class="pipe">
+      <div class="step"><div class="num">STEP 1</div><div class="em">🎓</div><h4>Unity 학습<br>(김치런)</h4></div>
+      <div class="step"><div class="num">STEP 2</div><div class="em">📋</div><h4>게임 기획<br>(GDD)</h4></div>
+      <div class="step"><div class="num">STEP 3</div><div class="em">🤖</div><h4>AI와 함께<br>제작</h4></div>
+      <div class="step"><div class="num">STEP 4</div><div class="em">📝</div><h4>노션<br>포트폴리오</h4></div>
+      <div class="step"><div class="num">STEP 5</div><div class="em">🎬</div><h4>유튜브<br>영상</h4></div>
+      <div class="step"><div class="num">STEP 6</div><div class="em">🚀</div><h4>itch.io<br>배포</h4></div>
+      <div class="step"><div class="num">STEP 7</div><div class="em">💬</div><h4>친구 작품<br>상호 평가</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 프로젝트 목록 ===== -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="tag">Projects</span>
+      <h2>프로젝트별 결과물 보기</h2>
+      <p>학기가 진행되며 프로젝트가 계속 추가됩니다. 각 카드에서 학생들의 작품 쇼케이스로 이동하세요.</p>
+    </div>
+    <div class="plist">
+
+      <!-- 1학기 1차 -->
+      <div class="pcard live" id="p-portfolio">
+        <div class="head">
+          <span class="semester">1학기 · 1차</span>
+          <span class="statuschip done">완료</span>
+        </div>
+        <div class="body">
+          <div class="em">📝</div>
+          <h3>노션 포트폴리오</h3>
+          <p>13명 학생 전원이 자신의 학습·제작 과정을 노션과 포트폴리오로 정리했습니다.</p>
+        </div>
+        <div class="foot">
+          <a class="gobtn" data-link="portfolio" href="#">쇼케이스 보기 <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- 1학기 2차 -->
+      <div class="pcard live" id="p-game">
+        <div class="head">
+          <span class="semester">1학기 · 2차</span>
+          <span class="statuschip done">완료</span>
+        </div>
+        <div class="body">
+          <div class="em">🎮</div>
+          <h3>Unity 창작 게임</h3>
+          <p>각자의 아이디어로 만든 게임 11종. 유튜브 영상과 itch.io 플레이 링크까지 한눈에.</p>
+        </div>
+        <div class="foot">
+          <a class="gobtn" data-link="game" href="#">쇼케이스 보기 <span>→</span></a>
+        </div>
+      </div>
+
+      <!-- 2학기 3차 -->
+      <div class="pcard soon">
+        <div class="head">
+          <span class="semester">2학기 · 3차</span>
+          <span class="statuschip soon">예정</span>
+        </div>
+        <div class="body">
+          <div class="em">✨</div>
+          <h3>2학기 프로젝트</h3>
+          <p>2학기에 이어질 세 번째 프로젝트입니다. 곧 이곳에서 만나요.</p>
+        </div>
+        <div class="foot">
+          <span class="soonbtn">준비 중 🛠️</span>
+        </div>
+      </div>
+
+      <!-- 2학기 4차 -->
+      <div class="pcard soon">
+        <div class="head">
+          <span class="semester">2학기 · 4차</span>
+          <span class="statuschip soon">예정</span>
+        </div>
+        <div class="body">
+          <div class="em">✨</div>
+          <h3>2학기 프로젝트</h3>
+          <p>한 해의 마지막을 장식할 프로젝트입니다. 학생들의 성장을 계속 기록해갑니다.</p>
+        </div>
+        <div class="foot">
+          <span class="soonbtn">준비 중 🛠️</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="foot-brand">아현 게임제작과</div>
+      <p>매년 학생들이 직접 게임을 기획 · 제작 · 배포하고 서로의 작품을 평가합니다. 미래의 게임 체인저들이 성장하는 곳.</p>
+    </div>
+    <div class="foot-links">
+      <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame" target="_blank">🏠 홈페이지</a>
+      <a href="https://www.instagram.com/ah_gamemaker_official/" target="_blank">📷 인스타그램</a>
+      <a href="https://www.youtube.com/@ahyeon_gamemaker" target="_blank">▶ 유튜브</a>
+    </div>
+  </div>
+  <div class="copy">© 2026 아현산업정보학교 게임제작과 · 게임제작 프로그래밍</div>
+</footer>
+
+<script>
+/* =======================================================================
+   프로젝트 쇼케이스 링크 — Google Sites에 각 페이지를 만든 뒤,
+   아래 URL을 실제 Sites 하위 페이지 주소로 바꿔주세요.
+   (예: https://sites.google.com/.../ahyeongame/pro/game )
+   ======================================================================= */
+const LINKS = {
+  game:      "https://sites.google.com/sonline20.sen.go.kr/ahyeongame/pro/game",
+  portfolio: "https://sites.google.com/sonline20.sen.go.kr/ahyeongame/pro/portfolio",
+};
+document.querySelectorAll('[data-link]').forEach(a=>{
+  const key = a.getAttribute('data-link');
+  if(LINKS[key]) a.href = LINKS[key];
+  a.target = "_top"; // Sites 임베드(iframe) 안에서 상위 창으로 이동
+});
+</script>
+
+</body>
+</html>
