@@ -56,7 +56,7 @@
 
   /* ---------- Student grid ---------- */
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .gcard{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;position:relative;}
+  .gcard{background:#F5F6FD;border:1px solid rgba(199,196,215,.5);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;position:relative;}
   .gcard:hover{transform:translateY(-5px);box-shadow:0 16px 34px -12px rgba(70,72,212,.22);border-color:var(--primary-container);}
   .cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#20223a;}
   .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s;}
@@ -73,27 +73,29 @@
   .rankchip.medal{background:linear-gradient(135deg,#FFE9A8,#E8A700);color:#5b4500;}
   .votechip{position:absolute;top:12px;right:12px;font-size:12px;font-weight:800;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--primary);z-index:2;}
   .gcard .top{padding:18px 20px 0;}
-  .gcard .title{font-size:20px;font-weight:800;letter-spacing:-.01em;line-height:1.22;margin-bottom:3px;}
-  .gcard .who{font-size:13.5px;color:var(--secondary);font-weight:700;}
-  .badges{display:flex;flex-wrap:wrap;gap:8px;padding:16px 20px 20px;margin-top:auto;}
-  .badge{font-size:12.5px;font-weight:700;padding:8px 13px;border-radius:999px;border:1px solid rgba(199,196,215,.7);color:var(--gray);display:inline-flex;align-items:center;gap:5px;transition:.18s;}
-  .badge:hover{border-color:var(--primary);color:var(--primary);background:rgba(70,72,212,.05);}
-  .badge.play-b{background:var(--primary);border-color:var(--primary);color:#fff;}
-  .badge.play-b:hover{background:var(--primary-container);color:#fff;}
-  .badge.na{opacity:.45;cursor:default;}
-  .badge.na:hover{border-color:rgba(199,196,215,.7);color:var(--gray);background:none;}
+  .gcard .nameline{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .gcard .who{font-size:20px;font-weight:800;letter-spacing:-.01em;color:var(--ink);}
+  .gcard .who .pno{color:var(--primary);}
+  .gcard .gname{font-size:13px;color:var(--secondary);font-weight:700;}
+  .badges{display:flex;gap:8px;padding:16px 20px 20px;margin-top:auto;}
+  .badge{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;font-weight:800;padding:12px 15px;border-radius:12px;border:1px solid rgba(199,196,215,.6);color:var(--gray);background:#EEF0FB;transition:.2s;white-space:nowrap;}
+  .badge:hover{background:#e4e7f5;}
+  .badge.play-b{color:var(--primary);background:rgba(70,72,212,.10);border-color:rgba(70,72,212,.22);}
+  .badge.play-b:hover{background:rgba(70,72,212,.18);}
+  .badge .arr{transition:transform .2s;}
+  .badge:hover .arr{transform:translateX(3px);}
+  .badge.na{flex:1;opacity:.5;cursor:default;background:#EEF0FB;color:var(--gray);}
+  .badge.na:hover{background:#EEF0FB;}
   @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:600px){.grid{grid-template-columns:1fr;}}
 
   /* ---------- Footer ---------- */
-  footer{background:var(--ink);color:#fff;}
-  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding:42px 24px;max-width:1160px;margin:0 auto;}
-  .foot-brand{font-size:18px;font-weight:800;margin-bottom:6px;}
-  .foot-brand+p{font-size:13px;color:rgba(255,255,255,.6);max-width:430px;line-height:1.6;}
-  .foot-links{display:flex;flex-wrap:wrap;gap:14px;}
-  .foot-links a{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.2);padding:9px 16px;border-radius:999px;transition:.2s;}
-  .foot-links a:hover{background:#fff;color:var(--ink);}
-  .copy{text-align:center;font-size:12px;color:rgba(255,255,255,.45);padding:0 24px 26px;}
+  footer{background:#eef0f7;border-top:1px solid #dcdaeb;padding:40px 0;}
+  .foot{max-width:1160px;margin:0 auto;padding:0 24px;font-size:14px;color:#111c2d;line-height:1.5;}
+  .foot-brand{font-weight:800;margin-bottom:12px;}
+  .foot-info{color:rgba(17,28,45,.8);line-height:1.7;}
+  .foot-info p{margin:0;}
+  .foot-copy{margin-top:20px;font-size:12px;color:rgba(17,28,45,.7);}
 </style>
 </head>
 <body>
@@ -103,8 +105,8 @@
   <div class="blob"></div><div class="blob2"></div>
   <div class="wrap inner">
     <span class="eyebrow">2026 1학기 · 게임제작 프로그래밍 · 2차 프로젝트</span>
-    <h1>모두의 창작 게임 쇼케이스</h1>
-    <p>‘김치런’으로 Unity를 처음 익힌 학생들이 Codex·Claude와 함께 바이브코딩으로 각자의 게임을 완성했습니다.
+    <h1>나의 첫 게임 — Unity 창작 게임</h1>
+    <p>‘김치런’으로 Unity를 처음 익힌 학생들이<br> Antigravity와 함께 바이브코딩으로 각자의 게임을 완성했습니다.<br>
        기획서(GDD)부터 제작 · 포트폴리오 · 영상 · itch.io 배포 · 상호 평가까지 — 스스로 전 과정을 해냈습니다.</p>
     <div class="meta">
       <div><b>13명</b><span>참여 학생</span></div>
@@ -128,17 +130,13 @@
 <!-- ===== Footer ===== -->
 <footer>
   <div class="foot">
-    <div>
-      <div class="foot-brand">아현 게임제작과</div>
-      <p>매년 학생들이 직접 게임을 기획 · 제작 · 배포하고 서로의 작품을 평가합니다. 미래의 게임 체인저들이 성장하는 곳.</p>
+    <p class="foot-brand">아현산업정보학교 게임제작과</p>
+    <div class="foot-info">
+      <p>📍 서울특별시 마포구 아현동 마포대로 249 아현산업정보학교 게임제작실습실</p>
+      <p>☎ 02-390-5864&nbsp;&nbsp; | &nbsp;&nbsp;✉ seomin@sen.go.kr</p>
     </div>
-    <div class="foot-links">
-      <a href="https://sites.google.com/sonline20.sen.go.kr/ahyeongame" target="_blank">🏠 홈페이지</a>
-      <a href="https://www.instagram.com/ah_gamemaker_official/" target="_blank">📷 인스타그램</a>
-      <a href="https://www.youtube.com/@ahyeon_gamemaker" target="_blank">▶ 유튜브</a>
-    </div>
+    <p class="foot-copy">© 2024 Ahyeon Game Lab. All rights reserved. High-Tech Education for Future Creators.</p>
   </div>
-  <div class="copy">© 2026 아현산업정보학교 게임제작과 · 게임제작 프로그래밍 1학기 2차 프로젝트</div>
 </footer>
 
 <script>
@@ -188,8 +186,8 @@ ordered.forEach((s, i)=>{
     : `<div class="cover wip"><div class="em">🛠️</div><div class="t">2학기에 이어집니다</div></div>`;
 
   const btn = (url, icon, label, cls='') => url
-    ? `<a class="badge ${cls}" href="${url}" target="_blank">${icon} ${label}</a>`
-    : `<span class="badge na">${icon} ${label}</span>`;
+    ? `<a class="badge ${cls}" href="${url}" target="_blank">${label} <span class="arr">→</span></a>`
+    : `<span class="badge na">${label}</span>`;
 
   const card = document.createElement('div');
   card.className = 'gcard';
@@ -198,8 +196,10 @@ ordered.forEach((s, i)=>{
     ${ isWip ? '' : `<span class="votechip">${s.votes}표</span>` }
     ${cover}
     <div class="top">
-      <div class="title">${s.title}</div>
-      <div class="who">${s.no.toString().padStart(2,'0')}번 ${s.name}</div>
+      <div class="nameline">
+        <div class="who"><span class="pno">${s.no.toString().padStart(2,'0')}번</span> ${s.name}</div>
+        <div class="gname">${s.title}</div>
+      </div>
     </div>
     <div class="badges">
       ${ btn(s.notion, '📝', '포트폴리오') }
