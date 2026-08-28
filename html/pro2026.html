@@ -30,12 +30,12 @@
   .center p{font-size:16px;color:var(--gray);max-width:700px;margin:0 auto;}
 
   /* ---------- Hero ---------- */
-  .hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-container) 55%,var(--secondary) 130%);color:#fff;padding:80px 0 72px;position:relative;overflow:hidden;}
+  .hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-container) 55%,var(--secondary) 130%);color:#fff;padding:52px 0 48px;position:relative;overflow:hidden;}
   .hero .blob{position:absolute;right:-90px;top:-90px;width:380px;height:380px;border-radius:50%;background:rgba(76,215,246,.22);}
   .hero .blob2{position:absolute;left:-70px;bottom:-110px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.08);}
   .hero .inner{position:relative;z-index:2;max-width:840px;}
-  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:7px 16px;border-radius:999px;margin-bottom:22px;}
-  .hero h1{font-size:46px;font-weight:800;line-height:1.16;letter-spacing:-.02em;margin-bottom:20px;}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:7px 16px;border-radius:999px;margin-bottom:16px;}
+  .hero h1{font-size:42px;font-weight:800;line-height:1.16;letter-spacing:-.02em;margin-bottom:0;}
   .hero h1 .hl{color:var(--cyan);}
   .hero p{font-size:17px;color:rgba(255,255,255,.92);max-width:680px;}
   .hero .meta{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;}
@@ -57,15 +57,6 @@
   .vibe .tools{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;position:relative;z-index:2;}
   .vibe .tool{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:10px 16px;border-radius:12px;}
   .vibe .tool .dot{width:9px;height:9px;border-radius:50%;background:#FFE9A8;}
-
-  .proj-intro{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px;}
-  .pi{background:var(--card);border:1px solid rgba(199,196,215,.5);border-radius:18px;padding:28px 26px;position:relative;overflow:hidden;transition:.25s;}
-  .pi:hover{transform:translateY(-4px);box-shadow:0 14px 30px -12px rgba(70,72,212,.2);}
-  .pi .n{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--primary);}
-  .pi .em{font-size:34px;margin:10px 0 12px;}
-  .pi h4{font-size:19px;font-weight:800;margin-bottom:8px;}
-  .pi p{font-size:14.5px;color:var(--gray);line-height:1.65;}
-  @media(max-width:720px){.proj-intro{grid-template-columns:1fr;}}
 
   /* ---------- Growth pipeline ---------- */
   .growth{background:var(--section-low);}
@@ -113,19 +104,11 @@
 <body>
 
 <!-- ===== Hero ===== -->
-<section class="hero" style="padding-top:80px;">
+<section class="hero" style="padding-top:52px;">
   <div class="blob"></div><div class="blob2"></div>
   <div class="wrap inner">
     <span class="eyebrow">2026학년도 · 게임제작 프로그래밍</span>
     <h1>배움에서 창작으로,<br><span class="hl">AI와 함께</span> 게임을 만든 한 해</h1>
-    <p>2026년 학생들은 Codex·Claude·Antigravity로 <b>바이브코딩</b>을 배우며, 스스로 게임을 기획하고 만들어 세상에 배포했습니다. <br>
-       한 학기 동안 학생들이 어떻게 배우고, 성장하고, 무엇을 완성했는지 이 페이지에 담았습니다.</p>
-    <div class="meta">
-      <div><b>13명</b><span>참여 학생</span></div>
-      <div><b>2개</b><span>1학기 프로젝트</span></div>
-      <div><b>11개</b><span>완성·배포한 게임</span></div>
-      <div><b>AI</b><span>바이브코딩 도입</span></div>
-    </div>
   </div>
 </section>
 
@@ -162,20 +145,6 @@
       </div>
     </div>
 
-    <div class="proj-intro">
-      <div class="pi">
-        <div class="n">1학기 · 1차 프로젝트</div>
-        <div class="em">📝</div>
-        <h4>노션 포트폴리오</h4>
-        <p>자신의 학습과 작업을 스스로 기록하고 정리하는 힘. <br>앞으로의 모든 프로젝트가 쌓이는 나만의 아카이브를 만들었습니다.</p>
-      </div>
-      <div class="pi">
-        <div class="n">1학기 · 2차 프로젝트</div>
-        <div class="em">🎮</div>
-        <h4>Unity2D 창작 게임</h4>
-        <p>‘김치런’으로 Unity를 익힌 뒤, 각자의 아이디어로 게임을 기획·제작하고 <br><b>itch.io</b>에 직접 배포했습니다.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -188,7 +157,7 @@
       <p>한 명도 빠짐없이 이 과정을 스스로 거쳤습니다. 결과물뿐 아니라 만들어가는 과정 전체가 학생들의 성장입니다.</p>
     </div>
     <div class="pipe">
-      <div class="step"><div class="num">STEP 1</div><div class="em">🎓</div><h4>Unity 학습<br>(김치런)</h4></div>
+      <div class="step"><div class="num">STEP 1</div><div class="em">🎓</div><h4>Unity 학습<br>Godot 학습</h4></div>
       <div class="step"><div class="num">STEP 2</div><div class="em">📋</div><h4>게임 기획<br>(GDD)</h4></div>
       <div class="step"><div class="num">STEP 3</div><div class="em">🤖</div><h4>AI와 함께<br>제작</h4></div>
       <div class="step"><div class="num">STEP 4</div><div class="em">📝</div><h4>노션<br>포트폴리오</h4></div>
@@ -241,19 +210,19 @@
         </div>
       </div>
 
-      <!-- 3차: Godot 본격 바이브코딩 (진행 중) -->
-      <div class="pcard prog">
+      <!-- 2학기 3차: Godot 자유주제 -->
+      <div class="pcard live" id="p-godot">
         <div class="head">
-          <span class="semester">3차 · 진행 중</span>
-          <span class="statuschip prog">진행 중</span>
+          <span class="semester">2학기 · 3차</span>
+          <span class="statuschip done">완료</span>
         </div>
         <div class="body">
           <div class="em">🌱</div>
           <h3>Godot 창작 게임</h3>
-          <p>새 엔진 <b>Godot</b>을 배우며 본격적인 바이브코딩에 돌입했습니다. 포트폴리오는 아직 준비 중 — 학생들의 다음 도약이 시작되었습니다.</p>
+          <p>새 엔진 <b>Godot</b>으로 본격적인 바이브코딩에 돌입해, 단 5일 만에 자유주제 게임 10종을 완성·배포했습니다.</p>
         </div>
         <div class="foot">
-          <span class="progbtn">제작 중 🛠️</span>
+          <a class="gobtn" data-link="godot" href="#">게임 작품 보기 <span>→</span></a>
         </div>
       </div>
 
@@ -298,6 +267,7 @@
 const LINKS = {
   game:      "https://sites.google.com/sonline20.sen.go.kr/ahyeongame/pro2026/pro20260-unity",
   portfolio: "https://sites.google.com/sonline20.sen.go.kr/ahyeongame/pro2026/pro2026-portfolio",
+  godot:     "https://sites.google.com/sonline20.sen.go.kr/ahyeongame/pro2026/pro20260-godot",
 };
 document.querySelectorAll('[data-link]').forEach(a=>{
   const key = a.getAttribute('data-link');

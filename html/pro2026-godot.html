@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 2학기 · 자유주제 프로젝트 — Godot 창작 게임 쇼케이스</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#1F6FB2;
+    --primary-container:#478CBF;
+    --secondary:#0E6E6E;
+    --cyan:#4CD7F6;
+    --gold:#E8A700;
+    --surface:#F7FBFF;
+    --card:#FFFFFF;
+    --section-low:#ECF4FB;
+    --ink:#111C2D;
+    --gray:#464554;
+    --line:#C0D2E0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Hanken Grotesk','Noto Sans KR',sans-serif;background:var(--surface);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;word-break:keep-all;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+  a{text-decoration:none;color:inherit;}
+  section{padding:60px 0;}
+
+  /* ---------- Hero ---------- */
+  .hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-container) 60%,var(--secondary) 130%);color:#fff;padding:68px 0 60px;position:relative;overflow:hidden;}
+  .hero .blob{position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;background:rgba(76,215,246,.22);}
+  .hero .blob2{position:absolute;left:-60px;bottom:-100px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08);}
+  .hero .inner{position:relative;z-index:2;max-width:820px;}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.16);padding:7px 16px;border-radius:999px;margin-bottom:20px;}
+  .hero h1{font-size:40px;font-weight:800;line-height:1.2;letter-spacing:-.02em;margin-bottom:18px;}
+  .hero p{font-size:16.5px;color:rgba(255,255,255,.92);max-width:660px;}
+  .hero .meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:30px;}
+  .hero .meta div{display:flex;flex-direction:column;}
+  .hero .meta b{font-size:26px;font-weight:800;}
+  .hero .meta span{font-size:13px;color:rgba(255,255,255,.78);font-weight:600;}
+  @media(max-width:640px){.hero h1{font-size:29px;}}
+
+  /* ---------- Section head ---------- */
+  .center{text-align:center;margin-bottom:40px;}
+  .center h2{font-size:29px;font-weight:800;margin-bottom:12px;letter-spacing:-.01em;}
+  .center p{font-size:15.5px;color:var(--gray);max-width:680px;margin:0 auto;}
+
+  /* ---------- Student grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .gcard{background:#F2F7FC;border:1px solid rgba(192,210,224,.7);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;position:relative;}
+  .gcard:hover{transform:translateY(-5px);box-shadow:0 16px 34px -12px rgba(31,111,178,.26);border-color:var(--primary-container);}
+  .cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#1b2a38;}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s;}
+  .gcard:hover .cover img{transform:scale(1.05);}
+  .cover .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(17,28,45,.18);opacity:0;transition:.25s;}
+  .gcard:hover .cover .play{opacity:1;}
+  .cover .play span{width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--primary);padding-left:4px;}
+  .cover[data-yt]{cursor:pointer;}
+  .cover iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3;}
+  .cover.wip{background:linear-gradient(135deg,#2f4a63,#0E6E6E);display:flex;align-items:center;justify-content:center;flex-direction:column;color:rgba(255,255,255,.9);gap:8px;}
+  .cover.wip .em{font-size:34px;}
+  .cover.wip .t{font-size:13px;font-weight:700;letter-spacing:.02em;}
+  .numchip{position:absolute;top:12px;left:12px;font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:rgba(17,28,45,.72);color:#fff;backdrop-filter:blur(4px);z-index:2;}
+  .gcard .top{padding:18px 20px 0;}
+  .gcard .nameline{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+  .gcard .who{font-size:20px;font-weight:800;letter-spacing:-.01em;color:var(--ink);}
+  .gcard .who .pno{color:var(--primary);}
+  .gcard .gname{font-size:13px;color:var(--secondary);font-weight:700;}
+  .badges{display:flex;gap:8px;padding:16px 20px 20px;margin-top:auto;}
+  .badge{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;font-weight:800;padding:12px 15px;border-radius:12px;border:1px solid rgba(192,210,224,.8);color:var(--gray);background:#E7EFF7;transition:.2s;white-space:nowrap;}
+  .badge:hover{background:#dbe7f2;}
+  .badge.play-b{color:var(--primary);background:rgba(31,111,178,.10);border-color:rgba(31,111,178,.22);}
+  .badge.play-b:hover{background:rgba(31,111,178,.18);}
+  .badge .arr{transition:transform .2s;}
+  .badge:hover .arr{transform:translateX(3px);}
+  .badge.na{flex:1;opacity:.5;cursor:default;background:#E7EFF7;color:var(--gray);}
+  .badge.na:hover{background:#E7EFF7;}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.grid{grid-template-columns:1fr;}}
+
+  /* ---------- Footer ---------- */
+  footer{background:#eaf1f7;border-top:1px solid #d5e2ec;padding:40px 0;}
+  .foot{max-width:1160px;margin:0 auto;padding:0 24px;font-size:14px;color:#111c2d;line-height:1.5;}
+  .foot-brand{font-weight:800;margin-bottom:12px;}
+  .foot-info{color:rgba(17,28,45,.8);line-height:1.7;}
+  .foot-info p{margin:0;}
+  .foot-copy{margin-top:20px;font-size:12px;color:rgba(17,28,45,.7);}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<section class="hero" style="padding-top:68px;">
+  <div class="blob"></div><div class="blob2"></div>
+  <div class="wrap inner">
+    <span class="eyebrow">2026 2학기 · 게임제작 프로그래밍 · 자유주제 프로젝트</span>
+    <h1>5일 만에 만든 게임 — Godot 창작 게임</h1>
+    <p>Unity로 첫 게임을 완성했던 학생들이 이번엔 Godot에 도전했습니다.<br>
+       단 5일간의 작업으로 기획 · 제작 · 포트폴리오 · 영상 · itch.io 배포까지 — 자유주제 게임을 스스로 완성했습니다.</p>
+    <div class="meta">
+      <div><b>13명</b><span>참여 학생</span></div>
+      <div><b id="m-games">10</b><span>완성·배포한 게임</span></div>
+      <div><b>5일</b><span>제작 기간</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Student grid ===== -->
+<section>
+  <div class="wrap">
+    <div class="center">
+      <h2>학생별 게임 포트폴리오</h2>
+      <p>카드 이미지를 누르면 게임 플레이 영상이 바로 재생됩니다.<br>아래 버튼을 눌러 노션 포트폴리오와 게임 플레이(itch.io)도 해보세요!</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="foot">
+    <p class="foot-brand">아현산업정보학교 게임제작과</p>
+    <div class="foot-info">
+      <p>📍 서울특별시 마포구 아현동 마포대로 249 아현산업정보학교 게임제작실습실</p>
+      <p>☎ 02-390-5864&nbsp;&nbsp; | &nbsp;&nbsp;✉ seomin@sen.go.kr</p>
+    </div>
+    <p class="foot-copy">© 2024 Ahyeon Game Lab. All rights reserved. High-Tech Education for Future Creators.</p>
+  </div>
+</footer>
+
+<script>
+/* =======================================================================
+   학생 데이터 — 여기만 수정하면 카드가 자동으로 갱신됩니다.
+   - 배열에 적힌 순서 그대로 카드가 나열됩니다.
+   - yt    : 유튜브 영상 ID (썸네일 커버 + 인라인 재생, 없으면 "" → 미완성 카드)
+   - itch  : itch.io 배포 링크 (없으면 "")
+   - notion: 게임 노션 포트폴리오(2학기) 링크
+   ======================================================================= */
+const STUDENTS = [
+  { no:5,  name:"문지홍", title:"The Lamb of the Wolf", yt:"KZzjSHo-cJw", itch:"https://peach0714.itch.io/the-lamb-of-the-wolf",  notion:"https://ahg1305.notion.site/The-Lamb-of-the-Wolf-3c7022d0af1880028747defe80a1177f" },
+  { no:14, name:"김건의", title:"HIGHTONE",             yt:"7HqyPn5K4jM", itch:"https://gunui.itch.io/hightone",                  notion:"https://pillll.notion.site/3c771edf111a80b29b3ae29b83694bb8" },
+  { no:3,  name:"김우현", title:"축성",                 yt:"mGUHG0RfTjc", itch:"https://vahyeon1303.itch.io/chuksung",            notion:"https://kneemajor.notion.site/3c7c278f7b388091b0efd4f292f0fc93" },
+  { no:13, name:"허도경", title:"Piece The Art",        yt:"M_Ru9Kf-80E", itch:"https://rosun180.itch.io/piece-the-art",          notion:"https://ahyon-game13.notion.site/Piece-The-Art-3c79020b9ac680049254e22b4b9c6451" },
+  { no:10, name:"인준완", title:"EMOTIONUP",            yt:"8fGaR2tcxiA", itch:"https://chunsh.itch.io/emotionjump",              notion:"https://ayheon10injunwan.notion.site/EMotion-up-3c73341895c480c2a168d5c95979fb5e" },
+  { no:8,  name:"백시하", title:"CHAOS ARENA",          yt:"2EsybAL_CEg", itch:"https://cutesiha.itch.io/chaos-arena",            notion:"https://ahyeongame08.notion.site/2026-CHAOS-ARENA-3c7bec9433b3800abee2c0c34fa4aae2" },
+  { no:15, name:"이태양", title:"Amond Die",            yt:"qC3zyTjvfD4", itch:"https://lenuseeel.itch.io/amonddie",              notion:"https://oasis-saguaro-80b.notion.site/2026-Amond-Die-3c8167b0c8ed8079826ee7e0d566ee72" },
+  { no:11, name:"조동슬", title:"힐끗 광산",             yt:"9MIbhMne8fw", itch:"https://marvelandcat-ux.itch.io/hillkket-mine",   notion:"https://jodongseulgame.notion.site/3c75ebeb18df808b9152f15fe4110b61" },
+  { no:2,  name:"김소유", title:"Dicemarble",           yt:"GMoRVurXQf8", itch:"https://iron3254.itch.io/dicemarble2?secret=jjTOt3k3MBAQLJbqjzbjp5zcwjk", notion:"https://ksys-workspace.notion.site/Dicemarble-3c83811323a6809ebde0e03290af06b4" },
+  { no:7,  name:"박주환", title:"PIXEL REX",            yt:"N0SZGknnp0g", itch:"https://peaparer.itch.io/pixel-rex",              notion:"https://trite-system-470.notion.site/PIXEL-REX-3c7952e5f4b1804abc84c7beb73f5ab6" },
+  { no:4,  name:"류도훈", title:"제작 도전 중",          yt:"", itch:"", notion:"" },
+  { no:6,  name:"박세준", title:"제작 도전 중",          yt:"", itch:"", notion:"" },
+  { no:12, name:"조정환", title:"제작 도전 중",          yt:"", itch:"", notion:"" },
+];
+
+/* ---- 상단 통계 ---- */
+document.getElementById('m-games').textContent = STUDENTS.filter(s=>s.yt).length;
+
+/* ---- 학생 카드 (배열 순서 그대로) ---- */
+const grid = document.getElementById('grid');
+
+STUDENTS.forEach((s, i)=>{
+  const isWip = !s.yt;
+
+  const cover = s.yt
+    ? `<div class="cover" data-yt="${s.yt}" role="button" tabindex="0" title="영상 재생">
+         <img src="https://img.youtube.com/vi/${s.yt}/hqdefault.jpg" alt="${s.title} 게임 화면" loading="lazy">
+         <div class="play"><span>▶</span></div>
+       </div>`
+    : `<div class="cover wip"><div class="em">🛠️</div><div class="t">제작에 도전하는 중입니다</div></div>`;
+
+  const btn = (url, label, cls='') => url
+    ? `<a class="badge ${cls}" href="${url}" target="_blank">${label} <span class="arr">→</span></a>`
+    : `<span class="badge na">${label}</span>`;
+
+  const card = document.createElement('div');
+  card.className = 'gcard';
+  card.innerHTML = `
+    <span class="numchip">${ isWip ? '제작 중' : String(i+1).padStart(2,'0') }</span>
+    ${cover}
+    <div class="top">
+      <div class="nameline">
+        <div class="who"><span class="pno">${s.no.toString().padStart(2,'0')}번</span> ${s.name}</div>
+        <div class="gname">${s.title}</div>
+      </div>
+    </div>
+    <div class="badges">
+      ${ btn(s.notion, '포트폴리오') }
+      ${ s.itch ? btn(s.itch, '웹 플레이', 'play-b') : '' }
+    </div>`;
+  grid.appendChild(card);
+});
+
+/* ---- 커버 클릭 → 유튜브 인라인 재생 ---- */
+grid.addEventListener('click', e=>{
+  const cover = e.target.closest('.cover[data-yt]');
+  if(!cover || cover.dataset.loaded) return;
+  cover.dataset.loaded = '1';
+  cover.innerHTML = `<iframe src="https://www.youtube.com/embed/${cover.dataset.yt}?autoplay=1&rel=0"
+      title="게임 플레이 영상" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
+});
+grid.addEventListener('keydown', e=>{
+  if((e.key==='Enter'||e.key===' ') && e.target.classList.contains('cover')){ e.preventDefault(); e.target.click(); }
+});
+</script>
+
+</body>
+</html>
