@@ -71,7 +71,6 @@
   .cover.wip .t{font-size:13px;font-weight:700;letter-spacing:.02em;}
   .rankchip{position:absolute;top:12px;left:12px;font-size:14px;font-weight:800;padding:5px 12px;border-radius:999px;background:rgba(17,28,45,.72);color:#fff;backdrop-filter:blur(4px);z-index:2;}
   .rankchip.medal{background:linear-gradient(135deg,#FFE9A8,#E8A700);color:#5b4500;}
-  .votechip{position:absolute;top:12px;right:12px;font-size:12px;font-weight:800;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--primary);z-index:2;}
   .gcard .top{padding:18px 20px 0;}
   .gcard .nameline{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
   .gcard .who{font-size:20px;font-weight:800;letter-spacing:-.01em;color:var(--ink);}
@@ -121,7 +120,7 @@
   <div class="wrap">
     <div class="center">
       <h2>학생별 게임 포트폴리오</h2>
-      <p>카드 이미지를 누르면 게임 플레이 영상이 바로 재생됩니다. 아래 버튼으로 노션 포트폴리오와 itch.io 게임도 확인하세요.</p>
+      <p>카드 이미지를 누르면 게임 플레이 영상이 바로 재생됩니다.<br>아래 버튼을 눌러 노션 포트폴리오와 게임 플레이(itch.io)도 해보세요!</p>
     </div>
     <div class="grid" id="grid"></div>
   </div>
@@ -193,7 +192,6 @@ ordered.forEach((s, i)=>{
   card.className = 'gcard';
   card.innerHTML = `
     <span class="${rankClass}">${rankLabel}</span>
-    ${ isWip ? '' : `<span class="votechip">${s.votes}표</span>` }
     ${cover}
     <div class="top">
       <div class="nameline">
@@ -203,7 +201,7 @@ ordered.forEach((s, i)=>{
     </div>
     <div class="badges">
       ${ btn(s.notion, '📝', '포트폴리오') }
-      ${ s.itch ? btn(s.itch, '🚀', '플레이', 'play-b') : '' }
+      ${ s.itch ? btn(s.itch, '🚀', '웹 플레이', 'play-b') : '' }
     </div>`;
   grid.appendChild(card);
 });
